@@ -6,7 +6,13 @@ public class PlayerActions : MonoBehaviour
 {
     public Transform playerCam;
     public float playerActivateDistance;
+    GameObject bookcaseRotate;
     bool active = false;
+
+    private void Start()
+    {
+        bookcaseRotate = GameObject.Find("BookcaseDoor");
+    }
     private void Update()
     {
         RaycastHit hit;
@@ -22,6 +28,21 @@ public class PlayerActions : MonoBehaviour
             {
                 hit.transform.GetComponent<Animator>().SetTrigger("Activate");
                 hit.transform.parent.parent.parent.Find("BlockMove").transform.GetComponent<Animator>().SetTrigger("Activate");
+            }
+
+            if(hit.transform.name == "BookcaseMove")
+            {
+                hit.transform.GetComponent<Animator>().SetTrigger("ActivateTrigger");
+            }
+
+            if (hit.transform.name == "LeverHandle")
+            {
+                hit.transform.parent.GetComponent<Animator>().SetTrigger("Trigger");
+                if(hit.transform.parent.parent.GetComponent<LeverActivate>().Activated == true)
+                    hit.transform.parent.parent.GetComponent<LeverActivate>().Activated = false;
+                else
+                    hit.transform.parent.parent.GetComponent<LeverActivate>().Activated = true;
+                bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
             }
         }
     }
