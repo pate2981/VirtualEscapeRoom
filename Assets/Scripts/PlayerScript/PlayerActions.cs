@@ -44,6 +44,10 @@ public class PlayerActions : MonoBehaviour
                     hit.transform.parent.parent.GetComponent<LeverActivate>().Activated = true;
                 bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
             }
+            if (hit.transform.name == "Key")
+            {
+                Debug.Log("Key clicked");
+            }
         }
     }
 }
