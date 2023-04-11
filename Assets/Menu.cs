@@ -20,7 +20,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
     public void CreditMenu(){
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
     IEnumerator BackToMain(){
         yield return new WaitForSeconds(4);

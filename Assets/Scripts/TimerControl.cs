@@ -11,6 +11,7 @@ public class TimerControl : MonoBehaviour
     public Text timerText; // Reference to the UI text element that will display the timer
     public GameObject gameOverScreen;
 
+
     private bool isGameOver = false;
     private void Start()
     {
@@ -18,12 +19,14 @@ public class TimerControl : MonoBehaviour
         StartCoroutine(UpdateTimer()); // Start the coroutine to update the timer
     }
 
-    private IEnumerator UpdateTimer()
+   private IEnumerator UpdateTimer()
     {
         while (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime; // Subtract the time since last frame from the time remaining
-            timerText.text = "Time Left: " + Mathf.RoundToInt(timeRemaining).ToString(); // Update the UI text element with the current time remaining
+            int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+            timerText.text = "Time Left: " + minutes.ToString("00") + ":" + seconds.ToString("00"); // Update the UI text element with the current time remaining in minutes and seconds format
             yield return null;
         }
         GameOver(); // Activate the game over screen object when the time runs out
@@ -32,7 +35,8 @@ public class TimerControl : MonoBehaviour
     {
         isGameOver = true;
         Time.timeScale = 0f; // Set the game time scale to 0 to stop the game
-        gameOverScreen.SetActive(true); // Activate the game over screen object
+        gameOverScreen.SetActive(true);
+        timerText.text="" ;
     }
 
 
