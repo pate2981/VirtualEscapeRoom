@@ -17,7 +17,7 @@ public class Menu : MonoBehaviour
         
     }
     public void GameStart(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void CreditMenu(){
         SceneManager.LoadScene(2);
@@ -32,8 +32,5 @@ public class Menu : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
     
-    }
-    public void SampleScene(){
-        SceneManager.LoadScene(1);
     }
 }
