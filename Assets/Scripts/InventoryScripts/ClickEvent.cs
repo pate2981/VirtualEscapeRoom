@@ -7,6 +7,14 @@ public class ClickEvent : MonoBehaviour
     public GameObject keyImage;
     public GameObject keyPrefab;
     public GameObject inventorySlot;
+    public GameObject popup;
+
+    public void Start()
+    {
+        popup.SetActive(false);
+        Time.timeScale = 0f;
+    }
+
     public void OnMouseDown()
     {
         Debug.Log("Puzzle found!");
@@ -15,6 +23,9 @@ public class ClickEvent : MonoBehaviour
         GameObject newObject = Instantiate(keyImage, inventorySlot.transform);
         newObject.transform.localPosition = Vector3.zero;
         keyPrefab.SetActive(false);
+        popup.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 1f;
     }
 
     public void UsePuzzle()

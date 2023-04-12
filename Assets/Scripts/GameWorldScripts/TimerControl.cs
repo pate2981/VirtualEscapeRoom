@@ -10,6 +10,7 @@ public class TimerControl : MonoBehaviour
     public float timeRemaining = 1000; // Set the initial time remaining
     public Text timerText; // Reference to the UI text element that will display the timer
     public GameObject gameOverScreen;
+    public GameObject toolbar;
 
     private bool isGameOver = false;
     private void Start()
@@ -37,6 +38,7 @@ public class TimerControl : MonoBehaviour
         Time.timeScale = 0f; // Set the game time scale to 0 to stop the game
         gameOverScreen.SetActive(true);
         timerText.text="" ;
+        toolbar.SetActive(false); 
     }
 
 
