@@ -17,10 +17,11 @@ public class BookcaseDoorMove : MonoBehaviour
     {
         if((lever1.GetComponent<LeverActivate>().Activated == false || lever2.GetComponent<LeverActivate>().Activated == false) && opened == true)
         {
+            opened = false;
             this.GetComponent<Animator>().SetTrigger("Trigger");
         }
             
-        if (lever1.GetComponent<LeverActivate>().Activated == true && lever2.GetComponent<LeverActivate>().Activated == true)
+        if ((lever1.GetComponent<LeverActivate>().Activated == true && lever2.GetComponent<LeverActivate>().Activated == true) && opened == false)
         {
             opened = true;
             this.GetComponent<Animator>().SetTrigger("Trigger");

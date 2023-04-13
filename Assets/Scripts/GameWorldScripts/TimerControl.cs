@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class TimerControl : MonoBehaviour
 {
 
-    public float timeRemaining = 1000; // Set the initial time remaining
+    public float timeRemaining = 10; // Set the initial time remaining
     public Text timerText; // Reference to the UI text element that will display the timer
     public GameObject gameOverScreen;
     public GameObject toolbar;
