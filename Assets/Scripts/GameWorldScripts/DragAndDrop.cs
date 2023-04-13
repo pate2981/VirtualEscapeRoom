@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshCollider))]
@@ -9,7 +10,7 @@ public class DragAndDrop : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
     private Camera myCamera;
-
+    public bool dragged = false;
     private void Awake()
     {
         myCamera = GameObject.Find("PlayerCam").GetComponent<Camera>();
@@ -20,7 +21,12 @@ public class DragAndDrop : MonoBehaviour
         screenPoint = myCamera.WorldToScreenPoint(gameObject.transform.position);
 
         offset = gameObject.transform.position - myCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        dragged = true;
+    }
 
+    private void OnMouseUp()
+    {
+        dragged = false;
     }
 
     void OnMouseDrag()

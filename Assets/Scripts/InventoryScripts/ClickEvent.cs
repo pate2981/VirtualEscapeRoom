@@ -12,7 +12,6 @@ public class ClickEvent : MonoBehaviour
     public void Start()
     {
         popup.SetActive(false);
-        Time.timeScale = 0f;
     }
 
     public void OnMouseDown()
