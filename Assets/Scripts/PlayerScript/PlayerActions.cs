@@ -9,6 +9,11 @@ public class PlayerActions : MonoBehaviour
     GameObject bookcaseRotate;
     bool active = false;
 
+    public GameObject scrollImage;
+    public GameObject scrollPrefab;
+    public GameObject inventorySlot;
+    public GameObject popup;
+
     private void Start()
     {
         bookcaseRotate = GameObject.Find("BookcaseDoor");
@@ -44,9 +49,17 @@ public class PlayerActions : MonoBehaviour
                     hit.transform.parent.parent.GetComponent<LeverActivate>().Activated = true;
                 bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
             }
-            if (hit.transform.name == "Key")
+            if (hit.transform.name == "Scroll")
             {
-                Debug.Log("Key clicked");
+                Debug.Log("Puzzle found!");
+
+                // Instantiate the prefab as a child of the canvas
+                GameObject newObject = Instantiate(scrollImage, inventorySlot.transform);
+                newObject.transform.localPosition = Vector3.zero;
+                scrollPrefab.SetActive(false);
+                popup.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 1f;
             }
         }
     }

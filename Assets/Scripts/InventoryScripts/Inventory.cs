@@ -72,7 +72,7 @@ public class Inventory : MonoBehaviour
                 }
                 if (selectedSlotIndex == 2)
                 {
-                    popupText.text = "I am a game of strategy and wit,\r\nWith two balls and pedestals, you must commit.\r\nPlace the balls just right, or you'll be stuck,\r\nFor the escape door to open, you're in luck.\r\nEach ball has its place, make no mistake,\r\nFigure out the puzzle, before it's too late.\r\nWith your mind sharp and your focus clear,\r\nThe escape is near, have no fear";
+                    popupText.text = "I am a game of strategy and wit, With two balls and pedestals, you must commit. Place the balls just right, or you'll be stuck, For the escape door to open, you're in luck. Each ball has its place, make no mistake, Figure out the puzzle, before it's too late.  With your mind sharp and your focus clear, The escape is near, have no fear";
                     popupBox.SetActive(true);
                     Cursor.lockState = CursorLockMode.None;
                     Time.timeScale = 1f;
