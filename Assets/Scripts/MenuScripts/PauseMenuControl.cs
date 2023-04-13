@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PauseMenuControl : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public Text timerText; 
+    public GameObject toolbar;
+    public GameObject crosshair;
+    public GameObject gameOver;
 
     private bool isPaused = false;
 
@@ -22,7 +28,7 @@ public class PauseMenuControl : MonoBehaviour
             {
                 Resume();
             }
-            else
+            else 
             {
                 Pause();
             }
@@ -36,6 +42,8 @@ public class PauseMenuControl : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         Debug.Log("Resume button pressed");
+        toolbar.SetActive(true);
+        crosshair.SetActive(true);
     }
 
     private void Pause()
@@ -44,6 +52,9 @@ public class PauseMenuControl : MonoBehaviour
         pauseMenuUI.SetActive(true);
         isPaused = true;
         StartCoroutine(PauseCoroutine());
+        timerText.text = "";
+        toolbar.SetActive(false);
+        crosshair.SetActive(false);
     }
 
     private IEnumerator PauseCoroutine()

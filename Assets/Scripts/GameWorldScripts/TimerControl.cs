@@ -11,6 +11,7 @@ public class TimerControl : MonoBehaviour
     public Text timerText; // Reference to the UI text element that will display the timer
     public GameObject gameOverScreen;
     public GameObject toolbar;
+    public GameObject crosshair;
 
     private bool isGameOver = false;
     private void Start()
@@ -39,6 +40,7 @@ public class TimerControl : MonoBehaviour
         gameOverScreen.SetActive(true);
         timerText.text="" ;
         toolbar.SetActive(false); 
+        crosshair.SetActive(false);
     }
 
 

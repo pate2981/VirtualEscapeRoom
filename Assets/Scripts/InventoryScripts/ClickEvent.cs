@@ -4,8 +4,8 @@ using UnityEngine.EventSystems;
 
 public class ClickEvent : MonoBehaviour
 {
-    public GameObject keyImage;
-    public GameObject keyPrefab;
+    public GameObject scrollImage;
+    public GameObject scrollPrefab;
     public GameObject inventorySlot;
     public GameObject popup;
 
@@ -18,18 +18,12 @@ public class ClickEvent : MonoBehaviour
     {
         Debug.Log("Puzzle found!");
 
-        // Instantiate the prefab as a child of the canvas
-        GameObject newObject = Instantiate(keyImage, inventorySlot.transform);
-        newObject.transform.localPosition = Vector3.zero;
-        keyPrefab.SetActive(false);
-        popup.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 1f;
+            // Instantiate the prefab as a child of the canvas
+            GameObject newObject = Instantiate(scrollImage, inventorySlot.transform);
+            newObject.transform.localPosition = Vector3.zero;
+            scrollPrefab.SetActive(false);
+            popup.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 1f;
     }
-
-    public void UsePuzzle()
-    {
-        Debug.Log("Puzzle used!");
-    }
-
 }
