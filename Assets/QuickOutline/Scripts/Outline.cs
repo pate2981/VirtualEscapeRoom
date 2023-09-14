@@ -48,7 +48,8 @@ public class Outline : MonoBehaviour {
     }
   }
 
-  [Serializable]
+
+    [Serializable]
   private class ListVector3 {
     public List<Vector3> data;
   }

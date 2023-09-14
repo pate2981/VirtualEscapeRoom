@@ -11,8 +11,10 @@ public class PopupMessage : MonoBehaviour
 
     public void ClickNextButton()
     {
-        Debug.Log("Next button clicked");
-        popup.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        //Debug.Log("Next button clicked");
+        
+        popup.SetActive(false); // Hides the popupbox 
+        Cursor.lockState = CursorLockMode.Locked;   // Makes Pointer visible
+        Time.timeScale = 1f;    // Locks screen so user can read msg
     }
 }

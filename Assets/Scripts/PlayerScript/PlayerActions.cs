@@ -51,7 +51,7 @@ public class PlayerActions : MonoBehaviour
             }
             if (hit.transform.name == "Scroll")
             {
-                Debug.Log("Puzzle found!");
+                /*Debug.Log("Puzzle found!");
 
                 // Instantiate the prefab as a child of the canvas
                 GameObject newObject = Instantiate(scrollImage, inventorySlot.transform);
@@ -59,7 +59,7 @@ public class PlayerActions : MonoBehaviour
                 scrollPrefab.SetActive(false);
                 popup.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
-                Time.timeScale = 1f;
+                Time.timeScale = 1f;*/
             }
         }
     }

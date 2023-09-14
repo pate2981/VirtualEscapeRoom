@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviourPunCallbacks
 {
     [Header("Movement")]
     public float moveSpeed;
@@ -24,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     
     Rigidbody rb;
 
+    public GameObject playerCamera;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,13 +35,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, isGround);
-        MyInput();
-        SpeedControl();
-        if (grounded)
-            rb.drag = groundDrag;
+        if (photonView.IsMine)
+        {
+
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, isGround);
+            MyInput();
+            SpeedControl();
+            if (grounded)
+                rb.drag = groundDrag;
+            else
+                rb.drag = 0;
+        }
+
         else
-            rb.drag = 0;
+        {
+            playerCamera.SetActive(false);
+        }
     }
     private void FixedUpdate()
     {

@@ -1,14 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/* An item is any Game Object that can be stored in the inventory system
+ */
 public class Item : MonoBehaviour
 {
-    public string Name;
-    public Sprite icon;
+    [SerializeField]
+    private string itemName;    // Name of the item
 
-    public void Use()
+    [SerializeField]
+    private GameObject image;   // Sprite representing the item
+
+    public string ItemName
     {
-        
+        get { return itemName; }
+        set { itemName = value; }
+    }
+
+    public GameObject Image
+    {
+        get { return image; }
+        set { image = value; }
     }
 }

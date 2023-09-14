@@ -19,6 +19,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
+
         // Initialize the array of outlines for the inventory slots
         slotOutlines = new Outline[inventorySlots.Length];
 
