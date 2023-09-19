@@ -21,4 +21,9 @@ public class Item : MonoBehaviour
         get { return image; }
         set { image = value; }
     }
+
+    public virtual object Use()
+    {
+        return null;
+    }
 }

@@ -16,12 +16,18 @@ public class Menu : MonoBehaviour
     {
         
     }
+
+     
     public void GameStart(){
-        SceneManager.LoadScene(1);
-    }
-    public void CreditMenu(){
         SceneManager.LoadScene(2);
     }
+
+    // Opens credit menu
+    public void CreditMenu(){
+        SceneManager.LoadScene(3);
+    }
+
+    // Go back to menu
     IEnumerator BackToMain(){
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(0);
@@ -29,6 +35,8 @@ public class Menu : MonoBehaviour
        public void BackToMenu(){
         SceneManager.LoadScene(0);
     }
+
+    // Quits the game
     public void QuitGame(){
         Application.Quit();
     
