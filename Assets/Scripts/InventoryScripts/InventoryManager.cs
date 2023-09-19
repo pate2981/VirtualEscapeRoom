@@ -16,7 +16,13 @@ public class InventoryManager : MonoBehaviour
     public void AddScroll(Scroll scroll)
     {        
         inventory.Add(scroll);
+        //Debug.Log("The inventory space: " + inventory.Count);
         inventoryUI.UpdateInventoryUIForScroll(inventory, scroll);  // Call to add the image of item in inventory
+    }
+
+    public List<Item> getInventory()
+    {
+        return inventory;
     }
 
     public bool HasItem(Item item)

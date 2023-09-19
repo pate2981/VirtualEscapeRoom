@@ -5374,7 +5374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventorySlots: []
   popup: {fileID: 300992593}
-  popupText: {fileID: 0}
+  popupText: {fileID: 149491925}
   inventoryManager: {fileID: 0}
 --- !u!1 &1140035458
 GameObject:
