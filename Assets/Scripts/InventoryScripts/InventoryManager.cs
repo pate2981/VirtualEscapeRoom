@@ -12,6 +12,8 @@ public class InventoryManager : MonoBehaviour
         inventoryUI = GetComponent<InventoryUI>();
     }
 
+    // Create function for checking if inventory is full
+
     /* Adds scroll to the players inventory*/
     public void AddScroll(Scroll scroll)
     {        

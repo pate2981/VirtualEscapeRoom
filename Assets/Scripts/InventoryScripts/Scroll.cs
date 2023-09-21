@@ -6,6 +6,10 @@ public class Scroll : Item
     private string message; // Hint contained in the scroll
     InventoryUI inventoryUI;
 
+    public void Start()
+    {
+        inventoryUI = GetComponent<InventoryUI>();
+    }
     public string Message
     {
         get { return message; }
@@ -16,6 +20,6 @@ public class Scroll : Item
     {
         Debug.Log("The message is " + Message);
         inventoryUI.DisplayScroll(Message);
-        return inventoryUI;
+        return base.Use();
     }
 }

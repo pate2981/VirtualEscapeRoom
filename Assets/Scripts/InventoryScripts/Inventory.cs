@@ -11,9 +11,6 @@ public class Inventory : MonoBehaviour
 
     public GameObject popupBox;
 
-    // Array of outlines for the inventory slots
-    private Outline[] slotOutlines;
-
     // Index of the selected inventory slot
     private int selectedSlotIndex = 0;
 

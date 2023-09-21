@@ -7,6 +7,7 @@ public class BookcaseDoorMove : MonoBehaviour
     GameObject lever1;
     GameObject lever2;
     bool opened = false;
+
     private void Start()
     {
         lever1 = GameObject.Find("LeverObj1");

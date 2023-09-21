@@ -4247,7 +4247,7 @@ MonoBehaviour:
   itemName: scroll 1
   image: {fileID: 6564733741430674843, guid: 7a2b6e6aa9b9d974a838d6b3de7a7f74, type: 3}
   message: '"I am surrounded by books, but I am not a librarian. I stand alone, waiting
-    for your attention. Approach me and press F, and I will reveal to you what grants
+    for your attention. Approach me and click me, and I will reveal to you what grants
     access to what you seek to seize."'
 --- !u!1 &1012720154
 GameObject:
@@ -5375,7 +5375,7 @@ MonoBehaviour:
   inventorySlots: []
   popup: {fileID: 300992593}
   popupText: {fileID: 149491925}
-  inventoryManager: {fileID: 0}
+  inventoryManager: {fileID: 457499612}
 --- !u!1 &1140035458
 GameObject:
   m_ObjectHideFlags: 0
@@ -9857,18 +9857,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: d0882da95153541c09fc1451e68b2ec1, type: 3}
   m_PrefabInstance: {fileID: 1188701739}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2088178510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088178508}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 396d4583b33ef4245846b3e60737fa64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &2088178511
 BoxCollider:
   m_ObjectHideFlags: 0

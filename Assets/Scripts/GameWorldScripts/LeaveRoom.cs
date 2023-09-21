@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class LeaveRoom : MonoBehaviour
 {
-
     public float timeRemaining = 10; // Set the initial time remaining
     public Text timerText; // Reference to the UI text element that will display the timer
     public GameObject winnerScreen;

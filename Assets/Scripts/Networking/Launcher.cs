@@ -23,7 +23,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joine a room successfully");
+        Debug.Log("Joined a room successfully");
         PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
        // PhotonNetwork.Instantiate(cameraPrefab.name, Vector3.zero, Quaternion.identity);
     }

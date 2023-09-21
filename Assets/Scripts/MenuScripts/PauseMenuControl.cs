@@ -69,14 +69,16 @@ public class PauseMenuControl : MonoBehaviour
         Time.timeScale = previousTimeScale;
     }
 
+    // This code is already in Menu script
     public void QuitGame()
     {
         Application.Quit();
     }
+
     public void LoadMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-        Debug.Log("Menu button pressed");
+        SceneManager.LoadScene(0);  // Goes back to main menu
+        // Debug.Log("Menu button pressed");
     }
 }
