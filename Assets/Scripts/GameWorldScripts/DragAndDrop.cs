@@ -16,17 +16,17 @@ public class DragAndDrop : MonoBehaviourPunCallbacks
     public bool isDraggable = true;
     private void Awake()
     {
-        Debug.LogError("Awake beginning");
+        Debug.Log("Awake beginning");
 
         if (playerPrefab == null)
         {
-            Debug.LogError("Player not found");
+            Debug.Log("Player not found");
 
         }
 
         else
         {
-            Debug.LogError("Player Prefab is picked up");
+            Debug.Log("Player Prefab is picked up");
             Transform playerCamTransform = playerPrefab.transform.Find("PlayerCam");
 
             if (playerCamTransform == null)
@@ -72,7 +72,7 @@ public class DragAndDrop : MonoBehaviourPunCallbacks
     {
         dragged = false;
 
-        Debug.LogError("MouseUp Working");
+        Debug.Log("MouseUp Working");
 
     }
 

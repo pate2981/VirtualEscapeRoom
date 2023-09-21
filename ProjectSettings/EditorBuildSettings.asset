@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: 6dceb2508e7e4de40889706b5d51bff1
   - enabled: 1
-    path: Assets/Scenes/the last revelation.unity
+    path: Assets/Scenes/Medieval.unity
     guid: fffc368ce7c545240a157d1fa3ce0e97
   - enabled: 1
     path: Assets/Scenes/Credits.unity

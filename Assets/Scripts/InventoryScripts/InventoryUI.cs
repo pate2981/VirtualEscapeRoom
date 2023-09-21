@@ -12,11 +12,12 @@ public class InventoryUI : MonoBehaviour
     public InventoryManager inventoryManager;
 
     // Index of the selected inventory slot
-    private int selectedSlotIndex = 0;
+    //private int selectedSlotIndex = 0;
 
-    public void Start()
+    /*public void Start()
     {
-    }
+        inventoryManager = GetComponent<InventoryManager>();
+    }*/
 
     // Updates UI when scroll is added
     public void UpdateInventoryUIForScroll(List<Item> inventory, Scroll scroll)
@@ -49,14 +50,15 @@ public class InventoryUI : MonoBehaviour
                 {
                     GameObject slot1 = GameObject.Find("Inventory Slot");
                     Image[] itemsInChildren = slot1.GetComponentsInChildren<Image>();
+                    Debug.Log("1 button clicked");
                     if (itemsInChildren.Length > 0)
                     {
+                        Debug.Log(inventoryManager.getInventory().ToString());
                         List<Item> inventory = inventoryManager.getInventory();
                         Item item = inventory[0];
-                        Debug.Log("The item is " + item);               
+                        Debug.Log("The item is a " + item);               
                         item.Use();
                     }
-
                     else
                     {
                         Debug.Log("Child object not found");

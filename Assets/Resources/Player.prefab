@@ -252,10 +252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 5135134672663746295}
   playerActivateDistance: 5
-  scrollImage: {fileID: 6564733741430674843, guid: 7a2b6e6aa9b9d974a838d6b3de7a7f74, type: 3}
-  scrollPrefab: {fileID: 0}
-  inventorySlot: {fileID: 0}
-  popup: {fileID: 0}
 --- !u!114 &5135134673858215608
 MonoBehaviour:
   m_ObjectHideFlags: 0

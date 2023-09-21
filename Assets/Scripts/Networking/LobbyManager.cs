@@ -16,6 +16,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     List<RoomItem> roomItemsList = new List<RoomItem>();    // List of R oomItem prefabs
     public Transform contentObject;    // Object in scroll view that will parent RoomItems to
 
+    public float timeBetweenUpdates = 1.5f;
+    float nextUpdateTime;
+
     // Adds player to the lobby so that they can create rooms
     private void Start()
     {
@@ -46,7 +49,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // Retrieves list of all available rooms
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        UpdateRoomList(roomList);
+        if (Time.time >= nextUpdateTime)
+        {
+            UpdateRoomList(roomList);
+            nextUpdateTime= Time.time + timeBetweenUpdates;
+        }
     }
 
     void UpdateRoomList(List<RoomInfo> list)
@@ -83,5 +90,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         roomPanel.SetActive(false);
         lobbyPanel.SetActive(true);
+    }
+
+    // Joins the lobby when we leave a room
+    public override void OnConnectedToMaster()
+    {
+        PhotonNetwork.JoinLobby();
     }
 }

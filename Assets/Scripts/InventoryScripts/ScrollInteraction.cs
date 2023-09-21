@@ -17,7 +17,7 @@ public class ScrollInteraction : MonoBehaviour
         // Destroys the scroll prefab in the game world
         //Destroy(gameObject);
 
-        // Removes it from game world
-        gameObject.SetActive(false);  // Displays popup message
+        // Removes the scroll from game world
+        gameObject.SetActive(false); 
     }
 }

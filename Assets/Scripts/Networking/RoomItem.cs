@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RoomItem : MonoBehaviour
 {
-    public Text roomName;
+    public TextMeshProUGUI roomName;
     LobbyManager manager;   
 
     private void Start()

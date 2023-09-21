@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
@@ -9,11 +10,6 @@ public class PlayerActions : MonoBehaviour
     GameObject bookcaseRotate;
     bool active = false;
 
-    public GameObject scrollImage;
-    public GameObject scrollPrefab;
-    public GameObject inventorySlot;
-    public GameObject popup;
-
     private void Start()
     {
         bookcaseRotate = GameObject.Find("BookcaseDoor");
@@ -22,7 +18,9 @@ public class PlayerActions : MonoBehaviour
     {
         RaycastHit hit;
         active = Physics.Raycast(playerCam.position, playerCam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
-        if (Input.GetKeyDown(KeyCode.F) && active == true)
+
+        // Checks to see if player has left clicked on their mouse
+        if (Input.GetMouseButtonDown((int)MouseButton.Left) && active == true)
         {
             if (hit.transform.name == "Door")
             {
@@ -35,11 +33,13 @@ public class PlayerActions : MonoBehaviour
                 hit.transform.parent.parent.parent.Find("BlockMove").transform.GetComponent<Animator>().SetTrigger("Activate");
             }
 
+            // Moves the bookcase if the user clicks it
             if (hit.transform.name == "BookcaseMove")
             {
                 hit.transform.GetComponent<Animator>().SetTrigger("ActivateTrigger");
             }
 
+            // Triggers the lever if it is clicked
             if (hit.transform.name == "LeverHandle")
             {
                 hit.transform.parent.GetComponent<Animator>().SetTrigger("Trigger");
@@ -48,18 +48,6 @@ public class PlayerActions : MonoBehaviour
                 else
                     hit.transform.parent.parent.GetComponent<LeverActivate>().Activated = true;
                 bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
-            }
-            if (hit.transform.name == "Scroll")
-            {
-                /*Debug.Log("Puzzle found!");
-
-                // Instantiate the prefab as a child of the canvas
-                GameObject newObject = Instantiate(scrollImage, inventorySlot.transform);
-                newObject.transform.localPosition = Vector3.zero;
-                scrollPrefab.SetActive(false);
-                popup.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Time.timeScale = 1f;*/
             }
         }
     }
