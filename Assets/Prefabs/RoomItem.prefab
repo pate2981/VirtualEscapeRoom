@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 1674139042046928423}
   - component: {fileID: 1674139042046928440}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: RoomName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
