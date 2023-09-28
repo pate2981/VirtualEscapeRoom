@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popup: {fileID: 300992593}
+  crosshair: {fileID: 0}
 --- !u!114 &27586589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,7 +459,7 @@ GameObject:
   - component: {fileID: 131757584}
   - component: {fileID: 131757583}
   m_Layer: 0
-  m_Name: Inventory Slot
+  m_Name: Inventory Slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1443,6 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   popup: {fileID: 300992593}
+  crosshair: {fileID: 541587266}
 --- !u!1 &304068114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,7 +1457,7 @@ GameObject:
   - component: {fileID: 304068117}
   - component: {fileID: 304068116}
   m_Layer: 0
-  m_Name: Inventory Slot (4)
+  m_Name: Inventory Slot 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2334,7 +2336,7 @@ GameObject:
   - component: {fileID: 449369950}
   - component: {fileID: 449369949}
   m_Layer: 0
-  m_Name: Inventory Slot (7)
+  m_Name: Inventory Slot 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2434,7 +2436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
-  inventoryUI: {fileID: 0}
+  inventoryUI: {fileID: 457499614}
 --- !u!4 &457499613
 Transform:
   m_ObjectHideFlags: 0
@@ -2474,6 +2476,7 @@ MonoBehaviour:
   popup: {fileID: 300992593}
   popupText: {fileID: 149491925}
   inventoryManager: {fileID: 457499612}
+  crosshair: {fileID: 541587266}
 --- !u!1 &496286475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4568,6 +4571,7 @@ MonoBehaviour:
   message: '"I am surrounded by books, but I am not a librarian. I stand alone, waiting
     for your attention. Approach me and click me, and I will reveal to you what grants
     access to what you seek to seize."'
+  inventoryUI: {fileID: 457499614}
 --- !u!1 &1012720154
 GameObject:
   m_ObjectHideFlags: 0
@@ -5237,7 +5241,7 @@ GameObject:
   - component: {fileID: 1087594140}
   - component: {fileID: 1087594139}
   m_Layer: 0
-  m_Name: Inventory Slot (1)
+  m_Name: Inventory Slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5731,6 +5735,7 @@ MonoBehaviour:
   popup: {fileID: 300992593}
   popupText: {fileID: 149491925}
   inventoryManager: {fileID: 457499612}
+  crosshair: {fileID: 0}
 --- !u!1 &1140035458
 GameObject:
   m_ObjectHideFlags: 0
@@ -6049,6 +6054,7 @@ MonoBehaviour:
     not in haste, for they must both be in play. Listen to the sounds they make,
     and choose the ones that chime. For when they both are pulled, the path to freedom
     will be thine"'
+  inventoryUI: {fileID: 457499614}
 --- !u!1 &1201667312
 GameObject:
   m_ObjectHideFlags: 0
@@ -6635,7 +6641,7 @@ GameObject:
   - component: {fileID: 1295790129}
   - component: {fileID: 1295790128}
   m_Layer: 0
-  m_Name: Inventory Slot (2)
+  m_Name: Inventory Slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6851,7 +6857,7 @@ GameObject:
   - component: {fileID: 1320278280}
   - component: {fileID: 1320278279}
   m_Layer: 0
-  m_Name: Inventory Slot (3)
+  m_Name: Inventory Slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7220,17 +7226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0432f05ff6f4a5941a516488e5419a9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySlots:
-  - {fileID: 131757581}
-  - {fileID: 1087594137}
-  - {fileID: 1295790126}
-  - {fileID: 1320278277}
-  - {fileID: 304068114}
-  - {fileID: 1552563461}
-  - {fileID: 1891530259}
-  - {fileID: 449369947}
-  popupText: {fileID: 149491925}
-  popupBox: {fileID: 300992593}
 --- !u!1 &1483846808
 GameObject:
   m_ObjectHideFlags: 0
@@ -7679,7 +7674,7 @@ GameObject:
   - component: {fileID: 1552563464}
   - component: {fileID: 1552563463}
   m_Layer: 0
-  m_Name: Inventory Slot (5)
+  m_Name: Inventory Slot 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9395,7 +9390,7 @@ GameObject:
   - component: {fileID: 1891530262}
   - component: {fileID: 1891530261}
   m_Layer: 0
-  m_Name: Inventory Slot (6)
+  m_Name: Inventory Slot 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10224,9 +10219,8 @@ GameObject:
   - component: {fileID: 2001307360}
   - component: {fileID: 2001307359}
   - component: {fileID: 2001307358}
-  - component: {fileID: 2001307361}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10297,9 +10291,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2001307361}
-        m_TargetAssemblyTypeName: PopupMessage, Assembly-CSharp
-        m_MethodName: ClickNextButton
+      - m_Target: {fileID: 457499614}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: CloseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10347,19 +10341,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2001307356}
   m_CullTransparentMesh: 1
---- !u!114 &2001307361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2001307356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1126e1bb577c9c4c850640e9c44c568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popup: {fileID: 300992593}
 --- !u!1 &2015145554
 GameObject:
   m_ObjectHideFlags: 0
@@ -10858,6 +10839,7 @@ MonoBehaviour:
     to open, you''re in luck. Each ball has its place, make no mistake, Figure out
     the puzzle, before it''s too late.  With your mind sharp and your focus clear,
     The escape is near, have no fear"'
+  inventoryUI: {fileID: 457499614}
 --- !u!1001 &2098401735
 PrefabInstance:
   m_ObjectHideFlags: 0

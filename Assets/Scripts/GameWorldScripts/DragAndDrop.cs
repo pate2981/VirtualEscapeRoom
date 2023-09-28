@@ -37,8 +37,6 @@ public class DragAndDrop : MonoBehaviourPunCallbacks
             {
                 myCamera = playerCamTransform.GetComponent<Camera>();
 
-
-
                 if (myCamera != null)
                 {
                     Debug.Log("Camera found: " + myCamera.name);

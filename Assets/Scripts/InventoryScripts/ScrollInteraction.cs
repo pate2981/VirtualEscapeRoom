@@ -14,10 +14,7 @@ public class ScrollInteraction : MonoBehaviour
         // Adds the scroll to the player's inventory
         inventoryManager.AddScroll(scroll);
 
-        // Destroys the scroll prefab in the game world
-        //Destroy(gameObject);
-
-        // Removes the scroll from game world
+        // Removes the visibility of scroll object from game world
         gameObject.SetActive(false); 
     }
 }

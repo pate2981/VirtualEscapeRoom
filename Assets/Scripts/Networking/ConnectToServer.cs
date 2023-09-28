@@ -11,6 +11,12 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public InputField usernameInput;    // InputField to enter nickname
     public TextMeshProUGUI buttonText; // Button to connect to server
 
+
+    private void Start()
+    {
+        usernameInput.Select(); // Makes InputField ready to receive user input
+    }
+
     // Connects user to server
     public void OnClickConnect()
     {
@@ -19,7 +25,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
             PhotonNetwork.NickName = usernameInput.text;
             buttonText.text = "Connecting...";
             PhotonNetwork.AutomaticallySyncScene = true;    // Sync room owner... 
-            PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.ConnectUsingSettings();   // Connects user to Photon server
         }
     }
 

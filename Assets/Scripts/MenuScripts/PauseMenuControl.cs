@@ -40,7 +40,7 @@ public class PauseMenuControl : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
-        Debug.Log("Resume button pressed");
+        //Debug.Log("Resume button pressed");
         toolbar.SetActive(true);
         crosshair.SetActive(true);
     }

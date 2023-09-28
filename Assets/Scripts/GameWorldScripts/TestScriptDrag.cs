@@ -13,7 +13,7 @@ public class TestScriptDrag : MonoBehaviour
 
     private void Awake()
     {
-        Debug.LogError("Awake beginning");
+        Debug.Log("Awake beginning");
 
         if (playerPrefab == null)
         {
@@ -23,7 +23,7 @@ public class TestScriptDrag : MonoBehaviour
 
         else
         {
-            Debug.LogError("Player Prefab is picked up");
+            Debug.Log("Player Prefab is picked up");
             Transform playerCamTransform = playerPrefab.transform.Find("PlayerCam");
 
             if (playerCamTransform == null)

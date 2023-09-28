@@ -4,15 +4,16 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using TMPro;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
     public InputField roomInputField;  // InputField for entering the room name 
-    // Test
+                                       // Test
     public InputField roomNameInputField;   // Testing second input field
     public GameObject lobbyPanel;   //  Panel for creating a room
     public GameObject roomPanel;    // Panel for displaying all rooms
-    public Text roomName;   // Name of the room
+    public TextMeshProUGUI roomName;   // Name of the room
 
     public RoomItem RoomItemPrefab; // Prefab of the name of the room
     List<RoomItem> roomItemsList = new List<RoomItem>();    // List of RoomItem prefabs
@@ -40,9 +41,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (roomInputField.text.Length >= 1)
         {
             // BroadcastProps lets Photon know that we wish to send and receive other players property changes
-            PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { BroadcastPropsChangeToAll = true});
-            Debug.Log(PhotonNetwork.CurrentRoom);
-            Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);            // This line sets the max players for a room to 3
+            PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
+            //Debug.Log(PhotonNetwork.CurrentRoom);
+            //Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);            // This line sets the max players for a room to 3
             // PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { MaxPlayers = 3});
         }
     }
@@ -62,17 +63,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         //if (Time.time >= nextUpdateTime)
         //{
-          //  Debug.Log("OnRoomListUpdated called");
-            UpdateRoomList(roomList);
-            //nextUpdateTime= Time.time + timeBetweenUpdates;
+        //  Debug.Log("OnRoomListUpdated called");
+        UpdateRoomList(roomList);
+        //nextUpdateTime= Time.time + timeBetweenUpdates;
         //}
     }
 
     void UpdateRoomList(List<RoomInfo> list)
     {
         // Destroy all RoomItems in the scene
-        foreach (RoomItem item in roomItemsList) 
-        { 
+        foreach (RoomItem item in roomItemsList)
+        {
             Destroy(item.gameObject);
         }
         roomItemsList.Clear();
@@ -97,8 +98,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         string roomName = roomNameInputField.text;
         PhotonNetwork.JoinRoom(roomName);
-        Debug.Log(PhotonNetwork.CurrentRoom);
-        Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);
+        //Debug.Log(PhotonNetwork.CurrentRoom);
+        //Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);
     }
 
     // test
@@ -172,7 +173,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-//        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+        //        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
 
         // Displays the playButton to the owner of the room
         if (PhotonNetwork.IsMasterClient)
