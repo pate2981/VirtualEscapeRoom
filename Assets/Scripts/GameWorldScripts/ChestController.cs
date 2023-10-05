@@ -22,8 +22,6 @@ public class ChestController : MonoBehaviour
 
             // Destroy the key object
             Destroy(key);
-
-            // Optional: play a sound effect or particle effect to indicate the chest opening
         }
     }
 }
