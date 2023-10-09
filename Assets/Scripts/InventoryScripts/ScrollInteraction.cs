@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ScrollInteraction : MonoBehaviour
 {
-    public InventoryManager inventoryManager;
+    [SerializeField]
+    private InventoryManager inventoryManager;
 
     public void OnMouseDown()
     {

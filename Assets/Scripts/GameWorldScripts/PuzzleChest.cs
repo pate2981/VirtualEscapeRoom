@@ -6,11 +6,11 @@ using UnityEngine;
 public class PuzzleChest : MonoBehaviour
 {
     private bool deposited = false;
-    private void OnCollisionEnter(Collision collision)
     public AudioSource chestOpenSound;
 
+    private void OnCollisionEnter(Collision collision)
     {
-        if(collision.rigidbody.name == "Key" && deposited == false)
+        if (collision.rigidbody.name == "Key" && deposited == false)
         {
             chestOpenSound.Play();
             deposited = true;

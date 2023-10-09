@@ -98,8 +98,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         string roomName = roomNameInputField.text;
         PhotonNetwork.JoinRoom(roomName);
-        //Debug.Log(PhotonNetwork.CurrentRoom);
-        //Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);
+        Debug.Log(PhotonNetwork.CurrentRoom);
+        Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);
     }
 
     // test

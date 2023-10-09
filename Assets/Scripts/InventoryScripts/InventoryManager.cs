@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<Item> inventory = new List<Item>(); // list of items in the player's inventory
-    public InventoryUI inventoryUI;
+    [SerializeField]
+    private List<Item> inventory = new List<Item>(); // list of items in the player's inventory
+    [SerializeField]
+    private InventoryUI inventoryUI;
 
     public void Start()
     {

@@ -6,11 +6,16 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public List<GameObject> inventorySlots; // List of images representing inventory slots
-    public GameObject popup;    // Popup box
-    public TextMeshProUGUI popupText;   // Popup message
-    public InventoryManager inventoryManager;
-    public GameObject crosshair;
+    [SerializeField]
+    private List<GameObject> inventorySlots; // List of images representing inventory slots
+    [SerializeField]
+    private GameObject popup;    // Popup box
+    [SerializeField]
+    private TextMeshProUGUI popupText;   // Popup message
+    [SerializeField]
+    private InventoryManager inventoryManager;
+    [SerializeField]
+    private GameObject crosshair;
 
     // Updates UI when scroll is added
     public void UpdateInventoryUIForScroll(List<Item> inventory, Scroll scroll)
@@ -18,7 +23,7 @@ public class InventoryUI : MonoBehaviour
         DisplayScroll(scroll.Message);
 
         // Adds image of scroll to an available inventory slot
-        int inventorySpace = inventoryManager.inventory.Count;  // Number of items in inventory
+        int inventorySpace = inventoryManager.getInventory().Count;  // Number of items in inventory
         GameObject inventorySlot = inventorySlots[inventorySpace - 1];  // Inventory slot where item will be placed
         GameObject newObject = Instantiate(scroll.Image, inventorySlot.transform);   // Creates image of item
         newObject.transform.localPosition = Vector3.zero;
@@ -48,29 +53,37 @@ public class InventoryUI : MonoBehaviour
     private void Update()
     {
         // Checks if player has pressed 1 key
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key1))
         {
-            GameObject slot1 = GameObject.Find("Inventory Slot 1"); // Retrieves the first inventory slot
             const int slotIndex = 0;    // Index in the array of where the item is 
-            CheckInventory(slot1, slotIndex);
+            HasItem(slotIndex);
         }
         // Checks if player has pressed 2 key
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key2))
         {
-            GameObject slot2 = GameObject.Find("Inventory Slot 2"); // Retrieves the second inventory slot
             const int slotIndex = 1;    // Index in the array of where the item is 
-            CheckInventory(slot2, slotIndex);
+            HasItem(slotIndex);
+
         }
         // Checks if player has pressed 3 key
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key3))
         {
-            GameObject slot3 = GameObject.Find("Inventory Slot 3"); // Retrieves the third inventory slot
             const int slotIndex = 2;    // Index in the array of where the item is 
-            CheckInventory(slot3, slotIndex);
+            HasItem(slotIndex);
         }
     }
 
-    public void CheckInventory(GameObject slot, int slotNumber)
+    public void HasItem(int slotIndex)
+    {
+        // if statement may not be needed
+        if (inventorySlots.Count() - 1 >= slotIndex)
+        {
+            GameObject slot3 = inventorySlots[slotIndex];
+            UseItem(slot3, slotIndex);
+        }
+    }
+
+    public void UseItem(GameObject slot, int slotNumber)
     {
         Image[] itemsInChildren = slot.GetComponentsInChildren<Image>();
 
@@ -82,7 +95,6 @@ public class InventoryUI : MonoBehaviour
             item.Use(); // Use the item
         }
     }
-
 }
 
    

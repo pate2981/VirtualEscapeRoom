@@ -4,7 +4,8 @@ public class Scroll : Item
 {
     [SerializeField]
     private string message; // Hint contained in the scroll
-    public InventoryUI inventoryUI;
+    [SerializeField]
+    private InventoryUI inventoryUI;
 
     public string Message
     {

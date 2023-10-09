@@ -440,7 +440,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 921774385}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.9943566
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1560,7 +1560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -394.00006, y: -19.999756}
+  m_AnchoredPosition: {x: -394, y: -19.999725}
   m_SizeDelta: {x: -887.0887, y: -184.1128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &827704461
@@ -2662,7 +2662,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00011163017}
+  m_AnchoredPosition: {x: 0, y: 0.00021377113}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1479155916
@@ -2721,7 +2721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomInputField: {fileID: 384811110}
-  roomNameInputField: {fileID: 384811110}
+  roomNameInputField: {fileID: 1982608210}
   lobbyPanel: {fileID: 827704459}
   roomPanel: {fileID: 288129590}
   roomName: {fileID: 1557975286}

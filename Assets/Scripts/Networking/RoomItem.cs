@@ -9,10 +9,10 @@ public class RoomItem : MonoBehaviour
     public TextMeshProUGUI roomName;
     LobbyManager manager;   
 
-/*    private void Start()
+    private void Start()
     {
         manager = FindObjectOfType<LobbyManager>(); // Search scene for GameObject with LobbyManager script attached to it
-    }*/
+    }
 
     // Sets the name of the room
     public void SetRoomName(string _roomName)
@@ -20,10 +20,10 @@ public class RoomItem : MonoBehaviour
         roomName.text = _roomName;
     }
 
-    /*// Click event for when a RoomItem is clicked
+    // Click event for when a RoomItem is clicked
     public void OnClickItem()
     {
-        //manager.JoinRoom(roomName.text);
-    }*/
+        manager.JoinRoom(roomName.text);
+    }
 
 }
