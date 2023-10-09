@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour
         
     }*/
 
+    // Starts single player game
     public void GameStart(){
         SceneManager.LoadScene(2);
     }

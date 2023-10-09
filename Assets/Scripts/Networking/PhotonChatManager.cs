@@ -1,6 +1,8 @@
 using ExitGames.Client.Photon;
 using Photon.Chat;
 using Photon.Pun;
+using Photon.Voice.PUN;
+using Photon.Voice.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,6 +21,9 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     [SerializeField] TextMeshProUGUI chatDisplay;
 
     private bool isInputFieldActive = false; // Added variable to track input field state
+
+    [SerializeField] private Speaker speaker;
+    [SerializeField] private Recorder recorder;
 
     void Start()
     {
@@ -45,6 +50,39 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         {
             SubmitPublicChatOnClick(); // Submit the chat message when input field is active and Enter is pressed
         }
+
+        /*if (speaker.isActiveAndEnabled == false)
+        {
+            Debug.LogError("speaker is not active and enabled");
+        }
+        if (speaker.isActiveAndEnabled == true)
+        {
+            Debug.Log("speaker is active and enabled");
+        }
+        if (speaker.IsPlaying == false)
+        {
+            Debug.LogError("speaker is not playing");
+        }
+        if (speaker.IsPlaying == true)
+        {
+            Debug.Log("speaker is playing");
+        }
+        if (recorder.isActiveAndEnabled== false)
+        {
+            Debug.LogError("recorder is not active and enabled");
+        }
+        if (recorder.isActiveAndEnabled == true)
+        {
+            Debug.Log("recorder is active and enabled");
+        }
+        if (recorder.IsCurrentlyTransmitting == false)
+        {
+            Debug.LogError("recorder is not transmitting");
+        }
+        if (recorder.isActiveAndEnabled == true)
+        {
+            Debug.Log("recorder is transmitting");
+        }*/
     }
 
     void ToggleInputField()
@@ -77,7 +115,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         chatClient.PublishMessage("RegionChannel", chatField.text);
         chatField.text = "";
         currentChat = "";
-        Debug.Log("SubmitPublicChatOnClick called");
+        //Debug.Log("SubmitPublicChatOnClick called");
 
     }
 
@@ -126,7 +164,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         {
             string senderAndMessage = $"{senders[i]}: {messages[i]}";
             chatDisplay.text += "\n" + senderAndMessage;
-            Debug.Log(senderAndMessage);
         }
     }
 

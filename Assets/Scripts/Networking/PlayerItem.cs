@@ -9,18 +9,24 @@ using Unity.VisualScripting;
 
 public class PlayerItem : MonoBehaviourPunCallbacks
 {
+    [SerializeField]
+    private TextMeshProUGUI playerName;  // TextField of the players username
 
-    public TextMeshProUGUI playerName;  // TextField of the players username
     private Image backgroundImage;   // Players avatar
-    public Color highlightColor;    
-    public GameObject leftArrowButton;  // Left arrow button to toggle avatars
-    public GameObject rightArrowButton; // Right arrow button to toggle avatars
+    
+    [SerializeField]
+    private Color highlightColor;
+    [SerializeField]
+    private GameObject leftArrowButton;  // Left arrow button to toggle avatars
+    [SerializeField]
+    private GameObject rightArrowButton; // Right arrow button to toggle avatars
 
     // Custom property
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();   // Synchronizes changes made when choosing avatar
     [SerializeField]
     private Image playerAvatar;  // Image of the player's avatar
-    public Sprite[] avatars;    // Sprite List of all Avatars
+    [SerializeField]
+    private Sprite[] avatars;    // Sprite List of all Avatars
 
     Player player;  // Photon object that contains a reference to a player
 

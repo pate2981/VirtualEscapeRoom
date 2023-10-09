@@ -5,28 +5,42 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
+using Photon.Voice.Unity;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    public InputField roomInputField;  // InputField for entering the room name 
-                                       // Test
-    public InputField roomNameInputField;   // Testing second input field
-    public GameObject lobbyPanel;   //  Panel for creating a room
-    public GameObject roomPanel;    // Panel for displaying all rooms
-    public TextMeshProUGUI roomName;   // Name of the room
+    [SerializeField]
+    private InputField roomInputField;  // InputField for entering the room name 
 
-    public RoomItem RoomItemPrefab; // Prefab of the name of the room
-    List<RoomItem> roomItemsList = new List<RoomItem>();    // List of RoomItem prefabs
-    public Transform contentObject;    // Object in scroll view that will parent RoomItems to
+    [SerializeField]
+    // Test
+    private InputField roomInputField2;   // Testing second input field
+    [SerializeField]
+
+    private GameObject lobbyPanel;   //  Panel for creating a room
+    [SerializeField]
+    private GameObject roomPanel;    // Panel for displaying all rooms
+    [SerializeField]
+    private TextMeshProUGUI roomName;   // Name of the room
+
+    [SerializeField]
+    private RoomItem RoomItemPrefab; // Prefab of the name of the room
+    [SerializeField]
+    private List<RoomItem> roomItemsList = new List<RoomItem>();    // List of RoomItem prefabs
+    [SerializeField]
+    private Transform contentObject;    // Object in scroll view that will parent RoomItems to
 
     //public float timeBetweenUpdates = 1.5f; // Time between updates for joining rooms
     //float nextUpdateTime;
+    [SerializeField]
+    private List<PlayerItem> playerItemsList = new List<PlayerItem>();   // List of player items
+    [SerializeField]
+    private PlayerItem playerItemPrefab; // Player item prefab
+    [SerializeField]
+    private Transform playerItemParent;  // Gameobject we will parent PlayerItem to
 
-    public List<PlayerItem> playerItemsList = new List<PlayerItem>();   // List of player items
-    public PlayerItem playerItemPrefab; // Player item prefab
-    public Transform playerItemParent;  // Gameobject we will parent PlayerItem to
-
-    public GameObject playButton;
+    [SerializeField]
+    private GameObject playButton;
 
     // Adds player to the lobby so that they can create rooms
     private void Start()
@@ -51,10 +65,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // Displays roompanel view
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined Room");
+        //Debug.Log("Joined Room");
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
         roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+
         UpdatePlayerList();
     }
 
@@ -96,7 +111,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // test
     public void JoinRoom()
     {
-        string roomName = roomNameInputField.text;
+        string roomName = roomInputField2.text;
         PhotonNetwork.JoinRoom(roomName);
         Debug.Log(PhotonNetwork.CurrentRoom);
         Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);
