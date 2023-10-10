@@ -40,18 +40,19 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             chatClient.Service();
         }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (isInputFieldActive && chatField.text != "" && Input.GetKey(KeyCode.Return))
+        {
+            SubmitPublicChatOnClick(); // Submit the chat message when input field is active and Enter is pressed
+            ToggleInputField();
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
             ToggleInputField();
             // Toggle the input field visibility when Enter is pressed
         }
 
-        if (isInputFieldActive && chatField.text != "" && Input.GetKey(KeyCode.Return))
-        {
-            SubmitPublicChatOnClick(); // Submit the chat message when input field is active and Enter is pressed
-        }
-
-        /*if (speaker.isActiveAndEnabled == false)
+        /* (speaker.isActiveAndEnabled == false)
         {
             Debug.LogError("speaker is not active and enabled");
         }
@@ -100,12 +101,13 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         }
     }
 
+
     private void ConnectToChat()
     {
         isConnected = true;
         chatClient = new ChatClient(this);
         chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, PhotonNetwork.AppVersion, new AuthenticationValues(PhotonNetwork.NickName));
-        Debug.Log("Connecting to chat...");
+        //Debug.Log("Connecting to chat...");
     }
     #endregion Setup
 
