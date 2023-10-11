@@ -20,13 +20,14 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     [SerializeField] TMP_InputField chatField;
     [SerializeField] TextMeshProUGUI chatDisplay;
 
-    private bool isInputFieldActive = false; // Added variable to track input field state
+    private bool isChatPanelActive = false; // Added variable to track input field state
 
     [SerializeField] private Speaker speaker;
     [SerializeField] private Recorder recorder;
 
     void Start()
     {
+        chatPanel.SetActive(false);
         if (PhotonNetwork.IsConnected)
         {
             ConnectToChat();
@@ -40,13 +41,12 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             chatClient.Service();
         }
 
-        if (isInputFieldActive && chatField.text != "" && Input.GetKey(KeyCode.Return))
+        if (isChatPanelActive && chatField.text != "" && Input.GetKey(KeyCode.Return))
         {
             SubmitPublicChatOnClick(); // Submit the chat message when input field is active and Enter is pressed
-            ToggleInputField();
         }
 
-        else if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleInputField();
             // Toggle the input field visibility when Enter is pressed
@@ -88,16 +88,16 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
 
     void ToggleInputField()
     {
-        isInputFieldActive = !isInputFieldActive;
+        isChatPanelActive = !isChatPanelActive;
 
-        if (isInputFieldActive)
+        if (isChatPanelActive)
         {
-            chatField.gameObject.SetActive(true);
+            chatPanel.gameObject.SetActive(true);
             chatField.ActivateInputField();
         }
         else
         {
-            chatField.gameObject.SetActive(false);
+            chatPanel.gameObject.SetActive(false);
         }
     }
 
@@ -117,6 +117,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         chatClient.PublishMessage("RegionChannel", chatField.text);
         chatField.text = "";
         currentChat = "";
+        chatField.Select();
         //Debug.Log("SubmitPublicChatOnClick called");
 
     }

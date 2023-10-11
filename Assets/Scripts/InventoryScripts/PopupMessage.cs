@@ -1,13 +1,12 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
-using UnityEditor.VersionControl;
 using TMPro;
 using UnityEngine.UIElements;
 
 public class PopupMessage : MonoBehaviour
 {
-    /*public GameObject popupMessagePrefab;
+    public GameObject popupMessagePrefab;
     void Start()
     {
         GameObject popupMessage = Instantiate(popupMessagePrefab);
@@ -31,5 +30,6 @@ public class PopupMessage : MonoBehaviour
     {
         popupMessagePrefab.SetActive(false); // Hides the popupbox 
         //Cursor.lockState = CursorLockMode.Locked;   // Makes Pointer visible
-    }*/
+    }
 }
+*/

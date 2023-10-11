@@ -7,21 +7,9 @@ public class Menu : MonoBehaviour
 {
     // This script manages the main menu interactions and scene transitions.
 
-    // Start is called before the first frame update
-/*    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }*/
-
     // Starts single player game
     public void GameStart(){
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     // Opens credit menu by loading the credits scene
@@ -34,8 +22,10 @@ public class Menu : MonoBehaviour
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(1);
     }
-       public void BackToMenu(){
-        SceneManager.LoadScene(1);
+
+    public void BackToMenu(){
+        SceneManager.LoadScene(0);
+
     }
 
     // Quits the game

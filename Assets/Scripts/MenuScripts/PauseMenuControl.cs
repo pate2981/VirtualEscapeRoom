@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -75,10 +76,10 @@ public class PauseMenuControl : MonoBehaviour
         Application.Quit();
     }
 
-    public void LoadMenu()
+    public void LoadMainLobby()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(0);  // Goes back to main menu
-        // Debug.Log("Menu button pressed");
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(1);  // Goes back to main lobby
     }
 }

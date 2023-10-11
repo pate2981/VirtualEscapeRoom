@@ -40,6 +40,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private Transform playerItemParent;  // Gameobject we will parent PlayerItem to
 
     [SerializeField]
+    private Transform playerAvatar;
+
+    [SerializeField]
     private GameObject playButton;
 
     // Adds player to the lobby so that they can create rooms
@@ -141,6 +144,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
+    public void LeaveLobby()
+    {
+        PhotonNetwork.LeaveLobby();
+        PhotonNetwork.Disconnect();
+    }
+
     // Updates player list GUI
     void UpdatePlayerList()
     {
@@ -203,8 +212,15 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
 
     // Loads Medieval room
-    public void OnClickPlayButton()
+    public void JoinMedievalRoom()
     {
         PhotonNetwork.LoadLevel("Medieval");
+    }
+
+    public void JoinAsylumRoom()
+    {
+        PhotonNetwork.LoadLevel("Asylum");
+        playerAvatar = GetComponent<Transform>();
+        playerAvatar.position = new Vector3(-123.9916f, 20.76479f, -125.0772f);
     }
 }

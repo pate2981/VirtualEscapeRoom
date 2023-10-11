@@ -553,7 +553,6 @@ GameObject:
   - component: {fileID: 303544059}
   - component: {fileID: 303544064}
   - component: {fileID: 303544063}
-  - component: {fileID: 303544065}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -685,19 +684,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303544058}
   m_CullTransparentMesh: 1
---- !u!114 &303544065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303544058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1126e1bb577c9c4c850640e9c44c568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popupMessagePrefab: {fileID: 1384336878513928722, guid: 1c2a8b5afaab44c4a860cc411ae51c7e, type: 3}
 --- !u!1 &322624273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,7 +1206,6 @@ MonoBehaviour:
   usernameInput: {fileID: 6337039}
   buttonText: {fileID: 196826149}
   internetConnection: 0
-  popupMessagePrefab: {fileID: 1384336878513928722, guid: 1c2a8b5afaab44c4a860cc411ae51c7e, type: 3}
 --- !u!4 &1833581067
 Transform:
   m_ObjectHideFlags: 0
