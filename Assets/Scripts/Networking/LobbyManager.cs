@@ -43,7 +43,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     private Transform playerAvatar;
 
     [SerializeField]
-    private GameObject playButton;
+    private GameObject joinMedievalBtn;
+    [SerializeField]
+    private GameObject joinAsylumBtn;
 
     // Adds player to the lobby so that they can create rooms
     private void Start()
@@ -202,12 +204,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // Displays the playButton to the owner of the room
         if (PhotonNetwork.IsMasterClient)
         {
-            playButton.SetActive(true);
+            joinMedievalBtn.SetActive(true);
+            joinAsylumBtn.SetActive(true);
         }
         // Disables the playButton to other players
         else
         {
-            playButton.SetActive(false);
+            joinMedievalBtn.SetActive(false);
+            joinAsylumBtn.SetActive(false);
         }
     }
 

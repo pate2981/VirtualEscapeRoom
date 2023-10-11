@@ -1,14 +1,21 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerActions : MonoBehaviour
+public class PlayerActions : MonoBehaviourPun
 {
-    public Transform playerCam;
-    public float playerActivateDistance;
-    GameObject bookcaseRotate;
-    bool active = false;
+    [SerializeField]
+    private Transform playerCam;
+    [SerializeField]
+    private float playerActivateDistance;
+    [SerializeField]
+    private GameObject bookcaseRotate;
+    [SerializeField]
+    private bool active = false;
+    
+    private RaycastHit hit;
 
     private void Start()
     {
@@ -16,7 +23,6 @@ public class PlayerActions : MonoBehaviour
     }
     private void Update()
     {
-        RaycastHit hit;
         active = Physics.Raycast(playerCam.position, playerCam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
 
         // Checks to see if player has left clicked on their mouse
@@ -36,7 +42,11 @@ public class PlayerActions : MonoBehaviour
             // Moves the bookcase if the user clicks it
             if (hit.transform.name == "BookcaseMove")
             {
-                hit.transform.GetComponent<Animator>().SetTrigger("ActivateTrigger");
+                if (photonView.IsMine)
+                {
+                    // Call an RPC to remove the visibility of scroll object from the game world for all players
+                    photonView.RPC("MoveBookcase", RpcTarget.AllBuffered, "ActivateTrigger");
+                }
             }
 
             // Triggers the lever if it is clicked
@@ -50,5 +60,11 @@ public class PlayerActions : MonoBehaviour
                 bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
             }
         }
+    }
+
+    [PunRPC]
+    private void MoveBookcase(string triggerName)
+    {
+        hit.transform.GetComponent<Animator>().SetTrigger(triggerName);
     }
 }

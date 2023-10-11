@@ -439,7 +439,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 921774386}
   m_HandleRect: {fileID: 921774385}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2944,7 +2944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000108056935}
+  m_AnchoredPosition: {x: 0, y: -0.000017631544}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1479155916
@@ -4174,13 +4174,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1935048038}
     - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
+      propertyPath: playerAvatar
+      value: 
+      objectReference: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
+    - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
       propertyPath: contentObject
       value: 
       objectReference: {fileID: 1479155915}
     - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
+      propertyPath: joinAsylumBtn
+      value: 
+      objectReference: {fileID: 474400052}
+    - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
       propertyPath: roomInputField
       value: 
       objectReference: {fileID: 384811110}
+    - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
+      propertyPath: joinMedievalBtn
+      value: 
+      objectReference: {fileID: 1935048038}
+    - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
+      propertyPath: roomInputField2
+      value: 
+      objectReference: {fileID: 1982608210}
     - target: {fileID: 4381232449617085706, guid: 49178e3f3037b3745b3a83e5b5e66558, type: 3}
       propertyPath: playerItemParent
       value: 
