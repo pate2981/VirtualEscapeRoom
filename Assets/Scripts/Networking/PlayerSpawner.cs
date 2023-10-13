@@ -2,22 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using TMPro;
 
 public class PlayerSpawner : MonoBehaviour
 {
     // Remove this later
-    public PhotonView playerPrefab;
+    [SerializeField] private GameObject playerPrefab;
 
-    public GameObject[] playerPrefabs;
-    public Transform[] spawnPoints;
+    [SerializeField] private GameObject[] playerPrefabs;
+    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private bool isSinglePlayer;
+
 
     // Start is called before the first frame update
     private void Start()
     {
-/*        int randomNumber = Random.Range(0, spawnPoints.Length);
-        Transform spawnPoint = spawnPoints[randomNumber];
-        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
-        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);*/
-        PhotonNetwork.Instantiate(playerPrefab.name, Vector3.zero, Quaternion.identity);
+        if (isSinglePlayer)
+        {
+            int randomNumber = Random.Range(0, spawnPoints.Length);
+            Transform spawnPoint = spawnPoints[randomNumber];
+            Instantiate(playerPrefab, spawnPoint);
+            PhotonView photonView = playerPrefab.GetComponent<PhotonView>();
+            PhotonTransformViewClassic photonTransformViewClassic = playerPrefab.GetComponent<PhotonTransformViewClassic>();
+            Destroy(photonView);
+            Destroy(photonTransformViewClassic);
+            // Destroy chat manager, voice manager and voice logger and the players speaker
+        }
+        else
+        {
+            int randomNumber = Random.Range(0, spawnPoints.Length);
+            Transform spawnPoint = spawnPoints[randomNumber];
+            PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, Quaternion.identity);
+            TextMeshProUGUI playerNickname = playerPrefab.GetComponent<TextMeshProUGUI>();
+            playerNickname.text = PhotonNetwork.NickName;
+        }
+    }
+
+    public void CheckIsSinglePlayer(bool isSinglePlayer)
+    {
+        isSinglePlayer = this.isSinglePlayer;
     }
 }

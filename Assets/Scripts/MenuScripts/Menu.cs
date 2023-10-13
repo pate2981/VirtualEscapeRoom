@@ -7,9 +7,15 @@ public class Menu : MonoBehaviour
 {
     // This script manages the main menu interactions and scene transitions.
 
+    [SerializeField]
+    private bool isSinglePlayer = false;
     // Starts single player game
     public void GameStart(){
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(2);
+        PlayerSpawner playerSpawner = GetComponent<PlayerSpawner>();
+        isSinglePlayer = true;
+        playerSpawner.CheckIsSinglePlayer(isSinglePlayer);
+        //4
     }
 
     // Opens credit menu by loading the credits scene

@@ -711,12 +711,16 @@ MonoBehaviour:
   highlightColor: {r: 0.3529412, g: 0.62352943, b: 0.972549, a: 0}
   leftArrowButton: {fileID: 2867540005121325786}
   rightArrowButton: {fileID: 5839611600802658776}
-  playerAvatar: {fileID: 6789982987152645421}
+  playerAvatar: {fileID: 0}
   avatars:
   - {fileID: 21300000, guid: 37af916d5546ea945a23fe5c07a302bb, type: 3}
   - {fileID: 21300000, guid: 1e5b90820e5c6d543b412dd4a3ed708d, type: 3}
   - {fileID: 21300000, guid: 9e7c63c8734f45c4a9fc2a9200fd5649, type: 3}
   - {fileID: 21300000, guid: 5c831398e802da141b819276272e3bf2, type: 3}
+  avatarList:
+  - {fileID: 1782702501690864755, guid: 60770bdb4dc667c45bea53db0339dc05, type: 3}
+  - {fileID: 3615025941386248610, guid: aa4a8c20368073d48a16d67ad212fa2e, type: 3}
+  - {fileID: 8445438282804491467, guid: 15466bb834aa21d478597e9d10322c81, type: 3}
 --- !u!1 &8949861207302192701
 GameObject:
   m_ObjectHideFlags: 0

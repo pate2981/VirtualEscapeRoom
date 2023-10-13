@@ -9,48 +9,38 @@ using Photon.Voice.Unity;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    private InputField roomInputField;  // InputField for entering the room name 
+    [SerializeField] private InputField roomInputField;  // InputField for entering the room name 
 
-    [SerializeField]
-    // Test
-    private InputField roomInputField2;   // Testing second input field
-    [SerializeField]
+    [SerializeField] private InputField roomInputField2;   // Second input field
+    [SerializeField] private GameObject lobbyPanel;   //  Panel for creating a room
+    [SerializeField] private GameObject roomPanel;    // Panel for displaying all rooms
+    [SerializeField] private TextMeshProUGUI roomName;   // Name of the room
 
-    private GameObject lobbyPanel;   //  Panel for creating a room
-    [SerializeField]
-    private GameObject roomPanel;    // Panel for displaying all rooms
-    [SerializeField]
-    private TextMeshProUGUI roomName;   // Name of the room
+    [SerializeField] private RoomItem RoomItemPrefab; // Prefab of the name of the room
+    [SerializeField] private List<RoomItem> roomItemsList = new List<RoomItem>();    // List of RoomItem prefabs
+    [SerializeField] private Transform contentObject;    // Object in scroll view that will parent RoomItems to
 
-    [SerializeField]
-    private RoomItem RoomItemPrefab; // Prefab of the name of the room
-    [SerializeField]
-    private List<RoomItem> roomItemsList = new List<RoomItem>();    // List of RoomItem prefabs
-    [SerializeField]
-    private Transform contentObject;    // Object in scroll view that will parent RoomItems to
+    private float timeBetweenUpdates = 1.5f; // Time between updates for joining rooms
+    private float nextUpdateTime;
 
-    //public float timeBetweenUpdates = 1.5f; // Time between updates for joining rooms
-    //float nextUpdateTime;
-    [SerializeField]
-    private List<PlayerItem> playerItemsList = new List<PlayerItem>();   // List of player items
-    [SerializeField]
-    private PlayerItem playerItemPrefab; // Player item prefab
-    [SerializeField]
-    private Transform playerItemParent;  // Gameobject we will parent PlayerItem to
+    [SerializeField] private List<PlayerItem> playerItemsList = new List<PlayerItem>();   // List of player items
+    [SerializeField] private PlayerItem playerItemPrefab; // Player item prefab
+    [SerializeField] private Transform playerItemParent;  // Gameobject we will parent PlayerItem to
 
-    [SerializeField]
-    private Transform playerAvatar;
+    [SerializeField] private Transform playerAvatar;
 
-    [SerializeField]
-    private GameObject joinMedievalBtn;
-    [SerializeField]
-    private GameObject joinAsylumBtn;
+    [SerializeField] private GameObject joinMedievalBtn;
+    [SerializeField] private GameObject joinAsylumBtn;
+
+    [SerializeField] private Toggle toggle;
+    [SerializeField] private bool isToggleOn = false;
 
     // Adds player to the lobby so that they can create rooms
     private void Start()
     {
         PhotonNetwork.JoinLobby();
+
+        toggle.onValueChanged.AddListener(OnToggleValueChanged);
     }
 
     // Creates room based on name inputted
@@ -81,12 +71,20 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // Retrieves list of all available rooms, get called by Photon when roomList has been changed
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        //if (Time.time >= nextUpdateTime)
-        //{
+        if (Time.time >= nextUpdateTime)
+        {
         //  Debug.Log("OnRoomListUpdated called");
-        UpdateRoomList(roomList);
-        //nextUpdateTime= Time.time + timeBetweenUpdates;
-        //}
+        if (isToggleOn)
+        {
+            Debug.Log("Room is private");
+        }
+        else
+        {
+            UpdateRoomList(roomList);
+            Debug.Log("Room is public");
+        }
+        nextUpdateTime= Time.time + timeBetweenUpdates;
+        }
     }
 
     void UpdateRoomList(List<RoomInfo> list)
@@ -213,6 +211,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             joinMedievalBtn.SetActive(false);
             joinAsylumBtn.SetActive(false);
         }
+    }
+
+    private void OnToggleValueChanged(bool isOn)
+    {
+        isToggleOn = isOn;
     }
 
     // Loads Medieval room

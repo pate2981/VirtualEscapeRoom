@@ -9,24 +9,21 @@ using Unity.VisualScripting;
 
 public class PlayerItem : MonoBehaviourPunCallbacks
 {
-    [SerializeField]
-    private TextMeshProUGUI playerName;  // TextField of the players username
+    [SerializeField] private TextMeshProUGUI playerName;  // TextField of the players username
 
     private Image backgroundImage;   // Players avatar
     
-    [SerializeField]
-    private Color highlightColor;
-    [SerializeField]
-    private GameObject leftArrowButton;  // Left arrow button to toggle avatars
-    [SerializeField]
-    private GameObject rightArrowButton; // Right arrow button to toggle avatars
+    [SerializeField] private Color highlightColor;
+    [SerializeField] private GameObject leftArrowButton;  // Left arrow button to toggle avatars
+    [SerializeField] private GameObject rightArrowButton; // Right arrow button to toggle avatars
 
     // Custom property
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();   // Synchronizes changes made when choosing avatar
-    [SerializeField]
-    private Image playerAvatar;  // Image of the player's avatar
-    [SerializeField]
-    private Sprite[] avatars;    // Sprite List of all Avatars
+    //[SerializeField] private Image playerAvatar;  // Image of the player's avatar
+    [SerializeField] private GameObject playerAvatar;  // Image of the player's avatar
+    [SerializeField] private Sprite[] avatars;    // Sprite List of all Avatars
+    [SerializeField] private GameObject[] avatarList;
+
 
     Player player;  // Photon object that contains a reference to a player
 
@@ -56,7 +53,8 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         if ((int)playerProperties["playerAvatar"] == 0)
         {
-            playerProperties["playerAvatar"] = avatars.Length - 1;
+            //playerProperties["playerAvatar"] = avatars.Length - 1;
+            playerProperties["playerAvatar"] = avatarList.Length - 1;
         }
         else
         {
@@ -95,8 +93,10 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         // Checks that player has custom property named playerAvatar
         if (player.CustomProperties.ContainsKey("playerAvatar"))
         {
-            playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];    // Synchronizes changes to players avatars for devices in the room
+            //playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];    // Synchronizes changes to players avatars for devices in the room
+            //playerAvatar = avatars[(int)player.CustomProperties["playerAvatar"]];    // Synchronizes changes to players avatars for devices in the room
             playerProperties["playerAvatar"] = (int)player.CustomProperties["playerAvatar"];    // Saves the avatar chosen
+            playerAvatar = avatarList[(int)player.CustomProperties["playerAvatar"]];    // Synchronizes changes to players avatars for devices in the room
         }
         else
         {
