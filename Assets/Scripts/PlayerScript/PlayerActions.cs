@@ -21,6 +21,7 @@ public class PlayerActions : MonoBehaviourPun
     {
         bookcaseRotate = GameObject.Find("BookcaseDoor");
     }
+
     private void Update()
     {
         active = Physics.Raycast(playerCam.position, playerCam.TransformDirection(Vector3.forward), out hit, playerActivateDistance);
@@ -39,7 +40,7 @@ public class PlayerActions : MonoBehaviourPun
                 hit.transform.parent.parent.parent.Find("BlockMove").transform.GetComponent<Animator>().SetTrigger("Activate");
             }
 
-            // Moves the bookcase if the user clicks it
+/*            // Moves the bookcase if the user clicks it
             if (hit.transform.name == "BookcaseMove")
             {
                 if (photonView.IsMine)
@@ -47,7 +48,7 @@ public class PlayerActions : MonoBehaviourPun
                     // Call an RPC to remove the visibility of scroll object from the game world for all players
                     photonView.RPC("MoveBookcase", RpcTarget.AllBuffered, "ActivateTrigger");
                 }
-            }
+            }*/
 
             // Triggers the lever if it is clicked
             if (hit.transform.name == "LeverHandle")
@@ -60,11 +61,5 @@ public class PlayerActions : MonoBehaviourPun
                 bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
             }
         }
-    }
-
-    [PunRPC]
-    private void MoveBookcase(string triggerName)
-    {
-        hit.transform.GetComponent<Animator>().SetTrigger(triggerName);
     }
 }
