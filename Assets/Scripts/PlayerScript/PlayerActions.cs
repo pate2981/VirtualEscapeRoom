@@ -51,7 +51,7 @@ public class PlayerActions : MonoBehaviourPun
             }*/
 
             // Triggers the lever if it is clicked
-            if (hit.transform.name == "LeverHandle")
+            /*if (hit.transform.name == "LeverHandle")
             {
                 hit.transform.parent.GetComponent<Animator>().SetTrigger("Trigger");
                 if (hit.transform.parent.parent.GetComponent<LeverActivate>().Activated == true)
@@ -59,7 +59,7 @@ public class PlayerActions : MonoBehaviourPun
                 else
                     hit.transform.parent.parent.GetComponent<LeverActivate>().Activated = true;
                 bookcaseRotate.GetComponent<BookcaseDoorMove>().updated();
-            }
+            }*/
         }
     }
 }
