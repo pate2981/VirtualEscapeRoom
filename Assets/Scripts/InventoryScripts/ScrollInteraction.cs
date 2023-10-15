@@ -10,9 +10,7 @@ public class ScrollInteraction : MonoBehaviourPun
 
     public void OnMouseDown()
     {
-        //if (photonView.IsMine)
-        //{
-            Debug.Log("Sroll clicked by: " + PhotonNetwork.NickName);
+
             // Gets the Scroll
             Scroll scroll = GetComponent<Scroll>();
 
@@ -21,7 +19,6 @@ public class ScrollInteraction : MonoBehaviourPun
 
             // Call an RPC to remove the visibility of scroll object from the game world for all players
             photonView.RPC("DisableScroll", RpcTarget.AllBuffered);
-        //}
     }
 
     [PunRPC]

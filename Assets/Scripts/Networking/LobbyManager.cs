@@ -6,12 +6,17 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using TMPro;
 using Photon.Voice.Unity;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Unity.VisualScripting;
 
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private InputField roomInputField;  // InputField for entering the room name 
+    [SerializeField] private InputField createRoomInputField;  // InputField for entering the room name 
+    [SerializeField] private Toggle toggle; // Toggle for private option
+    [SerializeField] private TMP_Dropdown dropdown; // Dropdown for room size
 
-    [SerializeField] private InputField roomInputField2;   // Second input field
+    [SerializeField] private InputField joinRoomInputField;   // Second input field
     [SerializeField] private GameObject lobbyPanel;   //  Panel for creating a room
     [SerializeField] private GameObject roomPanel;    // Panel for displaying all rooms
     [SerializeField] private TextMeshProUGUI roomName;   // Name of the room
@@ -22,68 +27,124 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private float timeBetweenUpdates = 1.5f; // Time between updates for joining rooms
     private float nextUpdateTime;
+    private bool isRoomnameValid = false;
+    private bool isToggled = false;
+    private int maxPlayers; // stores the max players in a room
 
     [SerializeField] private List<PlayerItem> playerItemsList = new List<PlayerItem>();   // List of player items
     [SerializeField] private PlayerItem playerItemPrefab; // Player item prefab
     [SerializeField] private Transform playerItemParent;  // Gameobject we will parent PlayerItem to
-
     [SerializeField] private Transform playerAvatar;
 
-    [SerializeField] private GameObject joinMedievalBtn;
+    // Buttons for joining rooms
+    [SerializeField] private GameObject joinMedievalBtn;    
     [SerializeField] private GameObject joinAsylumBtn;
 
-    [SerializeField] private Toggle toggle;
-    [SerializeField] private bool isToggleOn = false;
 
     // Adds player to the lobby so that they can create rooms
     private void Start()
     {
         PhotonNetwork.JoinLobby();
 
-        toggle.onValueChanged.AddListener(OnToggleValueChanged);
+        // Assign a listener to the Toggle's onValueChanged event
+        toggle.onValueChanged.AddListener(delegate { Toggle(toggle); });
+        toggle.isOn = false;
+
+        // Listener to the dropdown
+        dropdown.onValueChanged.AddListener(delegate
+        {
+            DropdownValueChanged(dropdown);
+        });
     }
 
-    // Creates room based on name inputted
-    public void OnClickCreate()
+    public void CreateRoom()
     {
-        // Room name should not be empty
-        if (roomInputField.text.Length >= 1)
+        ValidateRoomname();
+        if (isToggled== false)
         {
-            // BroadcastProps lets Photon know that we wish to send and receive other players property changes
-            PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
-            //Debug.Log(PhotonNetwork.CurrentRoom);
-            //Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);            // This line sets the max players for a room to 3
-            // PhotonNetwork.CreateRoom(roomInputField.text, new RoomOptions() { MaxPlayers = 3});
+            if (isRoomnameValid == true)
+            {
+                if (maxPlayers == 1)
+                {
+                    PhotonNetwork.CreateRoom(createRoomInputField.text, new RoomOptions() { BroadcastPropsChangeToAll = true });
+                    return;
+                }
+
+                PhotonNetwork.CreateRoom(createRoomInputField.text, new RoomOptions() { BroadcastPropsChangeToAll = true, MaxPlayers = maxPlayers });    // BroadcastProps lets Photon know that we wish to send and receive other players property changes
+            }
         }
+        else
+        {
+            if (isRoomnameValid == true)
+            {
+                if (maxPlayers == 1)
+                {
+                    PhotonNetwork.CreateRoom(createRoomInputField.text, new RoomOptions { BroadcastPropsChangeToAll = true, IsVisible = false});
+                    return;
+                }
+                PhotonNetwork.CreateRoom(createRoomInputField.text, new RoomOptions { BroadcastPropsChangeToAll = true, IsVisible = false, MaxPlayers = maxPlayers });
+            }
+        }
+    }
+
+    public void Toggle(Toggle toggle)
+    {
+        isToggled = toggle.isOn;
+    }
+
+    public void DropdownValueChanged(TMP_Dropdown change)
+    {
+        maxPlayers = dropdown.value + 1;
+        Debug.Log("Maxplayers = " + maxPlayers);
+    }
+
+    // Check if room name is valid
+    public void ValidateRoomname()
+    {
+        string roomname = createRoomInputField.text.ToLower();
+
+        // Check for empty or null room name
+        if (string.IsNullOrEmpty(roomname))
+        {
+            Debug.Log("Room name cannot be empty");
+            return;
+        }
+
+        // Trim leading and trailing whitespace
+        roomname = roomname.Trim();
+
+        // Check for special characters (allow only alphanumeric characters)
+        if (!Regex.IsMatch(roomname, "^[a-zA-Z0-9 ]+$"))
+        {
+            Debug.Log("Room name contains special characters");
+            return;
+        }
+
+        isRoomnameValid = true;
     }
 
     // Displays roompanel view
     public override void OnJoinedRoom()
     {
-        //Debug.Log("Joined Room");
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
-        roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
+        roomName.text = "Party Name: " + PhotonNetwork.CurrentRoom.Name;
+
+        if (maxPlayers == PhotonNetwork.CurrentRoom.PlayerCount)
+        {
+            PhotonNetwork.CurrentRoom.IsVisible= false;
+        }
 
         UpdatePlayerList();
     }
 
-    // Retrieves list of all available rooms, get called by Photon when roomList has been changed
+    // Retrieves list of all available rooms, gets called by Photon when roomList has been changed
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         if (Time.time >= nextUpdateTime)
         {
-        //  Debug.Log("OnRoomListUpdated called");
-        if (isToggleOn)
-        {
-            Debug.Log("Room is private");
-        }
-        else
-        {
+            nextUpdateTime = Time.time + timeBetweenUpdates;
             UpdateRoomList(roomList);
-            Debug.Log("Room is public");
-        }
-        nextUpdateTime= Time.time + timeBetweenUpdates;
         }
     }
 
@@ -111,20 +172,18 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(roomName);
     }
 
-    // test
-    public void JoinRoom()
+    // Joins private room
+    public void JoinPrivateRoom()
     {
-        string roomName = roomInputField2.text;
+        string roomName = joinRoomInputField.text;
         PhotonNetwork.JoinRoom(roomName);
-        Debug.Log(PhotonNetwork.CurrentRoom);
-        Debug.Log("Are we in a room? " + PhotonNetwork.InRoom);
     }
 
-    // test
-    public void JoinAvailableRoom()
-    {
-        PhotonNetwork.JoinRandomOrCreateRoom();
-    }
+    /*    // test
+        public void JoinAvailableRoom()
+        {
+            PhotonNetwork.JoinRandomOrCreateRoom();
+        }*/
 
     // Click event for leaving the room
     public void OnClickLeaveRoom()
@@ -132,6 +191,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LeaveRoom();
     }
 
+    // Called by Photon when player leaves a room
     public override void OnLeftRoom()
     {
         roomPanel.SetActive(false);
@@ -213,21 +273,22 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
     }
 
-    private void OnToggleValueChanged(bool isOn)
-    {
-        isToggleOn = isOn;
-    }
-
     // Loads Medieval room
     public void JoinMedievalRoom()
     {
         PhotonNetwork.LoadLevel("Medieval");
     }
 
+    // Load Asylum room
     public void JoinAsylumRoom()
     {
         PhotonNetwork.LoadLevel("Asylum");
-        playerAvatar = GetComponent<Transform>();
-        playerAvatar.position = new Vector3(-123.9916f, 20.76479f, -125.0772f);
+    }
+
+    public void JoinSinglePlaer()
+    {
+        PhotonNetwork.JoinRandomOrCreateRoom();
+        UpdatePlayerList();
+        PhotonNetwork.LoadLevel("Medieval");
     }
 }

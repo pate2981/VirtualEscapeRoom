@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,15 +8,23 @@ public class Menu : MonoBehaviour
 {
     // This script manages the main menu interactions and scene transitions.
 
-    [SerializeField]
-    private bool isSinglePlayer = false;
+    [SerializeField] private GameObject chatManager;
+    [SerializeField] private GameObject voiceManager;
+
     // Starts single player game
     public void GameStart(){
-        SceneManager.LoadScene(2);
-        PlayerSpawner playerSpawner = GetComponent<PlayerSpawner>();
-        isSinglePlayer = true;
-        playerSpawner.CheckIsSinglePlayer(isSinglePlayer);
-        //4
+        //SceneManager.LoadScene(2);    // 4
+        PhotonNetwork.LoadLevel("Medieval");
+
+        //PlayerSpawner playerSpawner = GetComponent<PlayerSpawner>();
+
+        /*PhotonView photonView = playerPrefab.GetComponent<PhotonView>();
+        PhotonTransformViewClassic photonTransformViewClassic = playerPrefab.GetComponent<PhotonTransformViewClassic>();
+        Destroy(photonView);
+        Destroy(photonTransformViewClassic);*/
+        // Destroy chat manager, voice manager and voice logger and the players speaker
+        //Destroy(chatManager);
+        //Destroy(voiceManager);
     }
 
     // Opens credit menu by loading the credits scene

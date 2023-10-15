@@ -44,11 +44,12 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         if (isChatPanelActive && chatField.text != "" && Input.GetKey(KeyCode.Return))
         {
             SubmitPublicChatOnClick(); // Submit the chat message when input field is active and Enter is pressed
+            chatField.ActivateInputField();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        else if (Input.GetKeyDown(KeyCode.Return))
         {
-            ToggleInputField();
+            ToggleChatPanel();
             // Toggle the input field visibility when Enter is pressed
         }
 
@@ -86,7 +87,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         }*/
     }
 
-    void ToggleInputField()
+    void ToggleChatPanel()
     {
         isChatPanelActive = !isChatPanelActive;
 
@@ -107,7 +108,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         isConnected = true;
         chatClient = new ChatClient(this);
         chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, PhotonNetwork.AppVersion, new AuthenticationValues(PhotonNetwork.NickName));
-        //Debug.Log("Connecting to chat...");
     }
     #endregion Setup
 
@@ -118,8 +118,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         chatField.text = "";
         currentChat = "";
         chatField.Select();
-        //Debug.Log("SubmitPublicChatOnClick called");
-
     }
 
 
@@ -132,7 +130,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     #region Callbacks
     public void DebugReturn(DebugLevel level, string message)
     {
-        //throw new System.NotImplementedException();
     }
 
     public void OnChatStateChange(ChatState state)

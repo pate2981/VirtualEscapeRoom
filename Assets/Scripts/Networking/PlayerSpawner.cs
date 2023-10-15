@@ -17,7 +17,7 @@ public class PlayerSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        if (isSinglePlayer)
+/*        if (isSinglePlayer)
         {
             int randomNumber = Random.Range(0, spawnPoints.Length);
             Transform spawnPoint = spawnPoints[randomNumber];
@@ -29,13 +29,12 @@ public class PlayerSpawner : MonoBehaviour
             // Destroy chat manager, voice manager and voice logger and the players speaker
         }
         else
-        {
+        {*/
             int randomNumber = Random.Range(0, spawnPoints.Length);
             Transform spawnPoint = spawnPoints[randomNumber];
             PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, Quaternion.identity);
             TextMeshProUGUI playerNickname = playerPrefab.GetComponent<TextMeshProUGUI>();
             playerNickname.text = PhotonNetwork.NickName;
-        }
     }
 
     public void CheckIsSinglePlayer(bool isSinglePlayer)
