@@ -4994,6 +4994,41 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12193201, y: 0.039105855, z: 0.23262405}
   m_Center: {x: 0, y: -9.313226e-10, z: 0.0000000037252903}
+--- !u!114 &1025839189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798349733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1025839190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798349733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb47cf0a0b207aa4f9491ef791a7d7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryManager: {fileID: 457499612}
 --- !u!114 &1025839191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5003,10 +5038,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 798349733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ffa17fd97210e244b2a2d44610f27be, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c461268220facc4fb7c91735f3e0aef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 5135134673858215608, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
+  itemName: Key
+  image: {fileID: 8445438282804491467, guid: 15466bb834aa21d478597e9d10322c81, type: 3}
+  inventoryUI: {fileID: 457499614}
 --- !u!1 &1026959277
 GameObject:
   m_ObjectHideFlags: 0
@@ -8436,19 +8473,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 1cc6cc20abc7a464a9dec49ee02361cf, type: 3}
---- !u!114 &1696062331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696062327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ba9fa8944ba4504a9e9f1c554df1643, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chestOpenSound: {fileID: 0}
 --- !u!82 &1696062332
 AudioSource:
   m_ObjectHideFlags: 0

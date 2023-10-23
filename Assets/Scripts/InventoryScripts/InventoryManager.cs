@@ -24,6 +24,12 @@ public class InventoryManager : MonoBehaviour
         inventoryUI.UpdateInventoryUIForScroll(inventory, scroll);  // Call to add the image of item in inventory
     }
 
+    public void AddKey(Key key)
+    {
+        inventory.Add(key);
+        inventoryUI.UpdateInventoryUIForKey(inventory, key);
+    }
+
     public List<Item> getInventory()
     {
         return inventory;

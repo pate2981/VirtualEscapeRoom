@@ -29,6 +29,15 @@ public class InventoryUI : MonoBehaviour
         newObject.transform.localPosition = Vector3.zero;
     }
 
+    public void UpdateInventoryUIForKey(List<Item> inventory, Key key)
+    {
+        // Adds image of key to an available inventory slot
+        int inventorySpace = inventoryManager.getInventory().Count;  // Number of items in inventory
+        GameObject inventorySlot = inventorySlots[inventorySpace - 1];  // Inventory slot where item will be placed
+        GameObject newObject = Instantiate(key.Image, inventorySlot.transform);   // Creates image of item
+        newObject.transform.localPosition = Vector3.zero;
+    }
+
     // Displays popup message of the scroll message
     public void DisplayScroll(string message)
     {
@@ -39,6 +48,14 @@ public class InventoryUI : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 1f;
         crosshair.SetActive(false);
+    }
+
+    public void OpenChest()
+    {
+        //chestOpenSound.Play();
+        GameObject.Find("Chest").GetComponent<Animator>().enabled = true;
+        GameObject.Find("Chest").GetComponentInChildren<MeshCollider>().enabled = false;
+        //collision.gameObject.SetActive(false);
     }
 
     // Closes popupmessage of the scroll message

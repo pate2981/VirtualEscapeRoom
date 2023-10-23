@@ -10,7 +10,7 @@ public class ScrollInteraction : MonoBehaviourPun
 
     public void OnMouseDown()
     {
-
+            Debug.Log("Sroll clicked by: " + PhotonNetwork.NickName);
             // Gets the Scroll
             Scroll scroll = GetComponent<Scroll>();
 
