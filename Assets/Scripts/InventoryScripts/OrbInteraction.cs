@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
-public class KeyInteraction : MonoBehaviourPun
+public class OrbInteraction : MonoBehaviourPun
 {
     [SerializeField] private InventoryManager inventoryManager;
 
     public void OnMouseDown()
     {
-        Debug.Log("Key clicked by: " + PhotonNetwork.NickName);
+        Debug.Log("Orb clicked by: " + PhotonNetwork.NickName);
         // Gets the Scroll
-        Key key = GetComponent<Key>();
+        Orb orb = GetComponent<Orb>();
 
         // Adds the scroll to the player's inventory
-        inventoryManager.AddKey(key);
+        inventoryManager.AddOrb(orb);
 
         // Call an RPC to remove the visibility of scroll object from the game world for all players
-        photonView.RPC("DisableKey", RpcTarget.AllBuffered);
+        photonView.RPC("DisableOrb", RpcTarget.AllBuffered);
     }
 
     [PunRPC]
-    private void DisableKey()
+    private void DisableOrb()
     {
         gameObject.SetActive(false);
     }

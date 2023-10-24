@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class Key : Item
+public class Orb : Item
 {
 
     [SerializeField] private InventoryUI inventoryUI;
 
     public override object Use()
     {
-        inventoryUI.OpenChest();
+        inventoryUI.PlaceOrb();
         return base.Use();
     }
 }
