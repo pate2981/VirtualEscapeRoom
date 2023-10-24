@@ -16,6 +16,11 @@ public class InventoryUI : MonoBehaviour
     private InventoryManager inventoryManager;
     [SerializeField]
     private GameObject crosshair;
+    [SerializeField]
+    private GameObject chestSoundObj;
+    [SerializeField]
+    private ChestAnimation chestAnimat;
+
 
     // Updates UI when scroll is added
     public void UpdateInventoryUIForScroll(List<Item> inventory, Scroll scroll)
@@ -52,9 +57,9 @@ public class InventoryUI : MonoBehaviour
 
     public void OpenChest()
     {
-        //chestOpenSound.Play();
-        GameObject.Find("Chest").GetComponent<Animator>().enabled = true;
-        GameObject.Find("Chest").GetComponentInChildren<MeshCollider>().enabled = false;
+
+        chestSoundObj.GetComponent<AudioSource>().Play();
+        chestAnimat.ChestAnim();
         //collision.gameObject.SetActive(false);
     }
 
