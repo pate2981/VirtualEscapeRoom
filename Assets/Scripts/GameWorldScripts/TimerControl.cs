@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class TimerControl : MonoBehaviour
+public class TimerControl : MonoBehaviourPunCallbacks
 {
 
     public float timeRemaining = 10; // Set the initial time remaining
@@ -54,7 +56,8 @@ public class TimerControl : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("Menu"); // Load the "MainMenu" scene to go back to the main menu
+        SceneManager.LoadScene("Lobby"); // Load the "MainMenu" scene to go back to the main menu
+        PhotonNetwork.LeaveRoom();
     }
 
 }

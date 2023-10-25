@@ -4,8 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class LeaveRoom : MonoBehaviour
+public class LeaveRoom : MonoBehaviourPun, IPunObservable
 {
     public float timeRemaining = 10; // Set the initial time remaining
     public Text timerText; // Reference to the UI text element that will display the timer
@@ -13,6 +14,7 @@ public class LeaveRoom : MonoBehaviour
     public GameObject toolbar;
     public GameObject crosshair;
     private bool isGameOver = false;
+    //[SerializeField] private GameObject playerPrefab;
 
     private void Start()
     {
@@ -21,15 +23,26 @@ public class LeaveRoom : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.rigidbody.name == "Player")
-        {
-            Cursor.lockState = CursorLockMode.None;
-            isGameOver = true;
-            Time.timeScale = 0f; // Set the game time scale to 0 to stop the game
-            winnerScreen.SetActive(true);
-            timerText.text = "";
-            toolbar.SetActive(false);
-            crosshair.SetActive(false);
-        }
+        photonView.RPC("NetworkTrigger", RpcTarget.AllViaServer);
+
+        
+        
+    }
+
+    [PunRPC]
+    void NetworkTrigger()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        isGameOver = true;
+        Time.timeScale = 0f; // Set the game time scale to 0 to stop the game
+        winnerScreen.SetActive(true);
+        timerText.text = "";
+        toolbar.SetActive(false);
+        crosshair.SetActive(false);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        // No need to send any data here as we're only using a trigger
     }
 }

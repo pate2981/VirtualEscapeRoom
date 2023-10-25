@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
@@ -10,6 +11,7 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject[] playerPrefabs;
     [SerializeField] private Transform[] spawnPoints;
     //[SerializeField] private bool isSinglePlayer;
+    private Player player; 
 
 
     // Start is called before the first frame update
@@ -27,7 +29,8 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         if (photonView.IsMine)
         {
             TextMeshProUGUI playerNickname = playerPrefab.GetComponent<TextMeshProUGUI>();
-            playerNickname.text = PhotonNetwork.NickName;
+           
+            playerNickname.text = player.NickName;
         }
     }
 
