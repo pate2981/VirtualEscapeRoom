@@ -17,38 +17,6 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private Orbsync orOne;
     [SerializeField] private OrbOneSync orTwo;
 
-
-
-    // Updates UI when scroll is added
-    public void UpdateInventoryUIForScroll(List<Item> inventory, Scroll scroll)
-    {
-        DisplayScroll(scroll.Message);
-
-        // Adds image of scroll to an available inventory slot
-        int inventorySpace = inventoryManager.getInventory().Count;  // Number of items in inventory
-        GameObject inventorySlot = inventorySlots[inventorySpace - 1];  // Inventory slot where item will be placed
-        GameObject image = Instantiate(scroll.Image, inventorySlot.transform);   // Creates image of item
-        image.transform.localPosition = Vector3.zero;
-    }
-
-/*    public void UpdateInventoryUIForKey(List<Item> inventory, Key key)
-    {
-        // Adds image of key to an available inventory slot
-        int inventorySpace = inventoryManager.getInventory().Count;  // Number of items in inventory
-        GameObject inventorySlot = inventorySlots[inventorySpace - 1];  // Inventory slot where item will be placed
-        GameObject image = Instantiate(key.Image, inventorySlot.transform);   // Creates image of item
-        image.transform.localPosition = Vector3.zero;
-    }
-
-    public void UpdateInventoryUIForOrb(List<Item> inventory, Orb orb)
-    {
-        // Adds image of orb to an available inventory slot
-        int inventorySpace = inventoryManager.getInventory().Count;  // Number of items in inventory
-        GameObject inventorySlot = inventorySlots[inventorySpace - 1];  // Inventory slot where item will be placed
-        GameObject image = Instantiate(orb.Image, inventorySlot.transform);   // Creates image of item
-        image.transform.localPosition = Vector3.zero;
-    }*/
-
     public void UpdateInventoryUI(List<Item> inventory, Item item)
     {
         // Adds image of item to an available inventory slot
@@ -81,19 +49,12 @@ public class InventoryUI : MonoBehaviour
     public void PlaceOrb()
     {
         orOne.orbSync();
-        
-        
     }
 
     public void PlaceOrb1()
     {
         orTwo.orbOneSync();
     }
-
-    
-
-    
-    
 
     // Closes popupmessage of the scroll message
     public void CloseButton()
@@ -107,44 +68,54 @@ public class InventoryUI : MonoBehaviour
     private void Update()
     {
         // Checks if player has pressed 1 key
-        if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key1))
+        if (Input.GetKeyDown((KeyCode)KeyBind.Key1))
         {
             const int slotIndex = 0;    // Index in the array of where the item is 
             HasItem(slotIndex);
         }
         // Checks if player has pressed 2 key
-        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key2))
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key2))
         {
             const int slotIndex = 1;    // Index in the array of where the item is 
             HasItem(slotIndex);
 
         }
         // Checks if player has pressed 3 key
-        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key3))
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key3))
         {
             const int slotIndex = 2;    // Index in the array of where the item is 
             HasItem(slotIndex);
         }
         // Checks if player has pressed 4 key
-        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key4))
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key4))
         {
             const int slotIndex = 3;    // Index in the array of where the item is 
             HasItem(slotIndex);
         }
         // Checks if player has pressed 5 key
-        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key5))
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key5))
         {
             const int slotIndex = 4;    // Index in the array of where the item is 
             HasItem(slotIndex);
         }
         // Checks if player has pressed 6 key
-        else if (Input.GetKeyDown((KeyCode)KeyboardKeys.Key6))
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key6))
         {
             const int slotIndex = 5;    // Index in the array of where the item is 
             HasItem(slotIndex);
         }
-
-
+        // Checks if player has pressed 7 key
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key7))
+        {
+            const int slotIndex = 6;    // Index in the array of where the item is 
+            HasItem(slotIndex);
+        }
+        // Checks if player has pressed 8 key
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key8))
+        {
+            const int slotIndex = 7;    // Index in the array of where the item is 
+            HasItem(slotIndex);
+        }
     }
 
     public void HasItem(int slotIndex)

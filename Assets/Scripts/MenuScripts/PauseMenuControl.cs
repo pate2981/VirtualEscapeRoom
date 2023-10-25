@@ -12,6 +12,7 @@ public class PauseMenuControl : MonoBehaviour
     public GameObject toolbar;
     public GameObject crosshair;
     public GameObject gameOver;
+    public GameObject chatPanel;
 
     private bool isPaused = false;
 
@@ -22,7 +23,7 @@ public class PauseMenuControl : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown((KeyCode)KeyBind.PauseGame))
         {
             if (isPaused)
             {
@@ -55,6 +56,7 @@ public class PauseMenuControl : MonoBehaviour
         timerText.text = "";
         toolbar.SetActive(false);
         crosshair.SetActive(false);
+        chatPanel.SetActive(false);
     }
 
     private IEnumerator PauseCoroutine()

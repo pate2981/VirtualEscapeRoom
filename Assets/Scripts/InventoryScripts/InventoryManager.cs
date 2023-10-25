@@ -7,54 +7,21 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<Item> inventory = new List<Item>(); // list of items in the player's inventory
     [SerializeField] private InventoryUI inventoryUI;
 
+    private const int inventorySize = 8;
+
     public void Start()
     {
         inventoryUI = GetComponent<InventoryUI>();
     }
 
-    // Create function for checking if inventory is full
-
-    /* Adds scroll to the players inventory*/
-    public void AddScroll(Scroll scroll)
-    {
-        if (isInventoryFull())
-        {
-            AddItem(scroll);
-            inventoryUI.UpdateInventoryUIForScroll(inventory, scroll);  // Call to add the image of item in inventory
-        }
-    }
-
-    public void AddKey(Key key)
-    {
-        if (isInventoryFull())
-        {
-            AddItem(key);
-            inventoryUI.UpdateInventoryUI(inventory, key);
-        }
-    }
-
-    public void AddOrb(Orb orb)
-    {
-        Debug.Log("Add Orb");
-        if (isInventoryFull())
-        {
-            AddItem(orb);
-            inventoryUI.UpdateInventoryUI(inventory, orb);
-        }
-    }
-
-    public void AddOrb1(Orb1 orb1)
-    {
-        if (isInventoryFull())
-        {
-            AddItem(orb1);
-            inventoryUI.UpdateInventoryUI(inventory, orb1);
-        }
-    }
-
+    /* Adds item to the player's inventory */
     public void AddItem(Item item)
     {
-        inventory.Add(item);
+        if (isInventoryFull())
+        {
+            inventory.Add(item);
+            inventoryUI.UpdateInventoryUI(inventory, item);
+        }
     }
 
     public List<Item> getInventory()
@@ -69,7 +36,7 @@ public class InventoryManager : MonoBehaviour
 
     public bool isInventoryFull()
     {
-        if (inventory.Count == 8)
+        if (inventory.Count >= inventorySize)
         {
             return false;
         }

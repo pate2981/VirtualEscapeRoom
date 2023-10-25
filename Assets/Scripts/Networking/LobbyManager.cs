@@ -37,14 +37,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     [SerializeField] private Transform playerAvatar;
 
     // Buttons for joining rooms
-    [SerializeField] private GameObject joinMedievalBtn;    
-    [SerializeField] private GameObject joinAsylumBtn;
-
+    [SerializeField] private Button joinMedievalBtn;    
+    [SerializeField] private Button joinAsylumBtn;
+    [SerializeField] private Button leaveBtn;
 
     // Adds player to the lobby so that they can create rooms
     private void Start()
     {
         PhotonNetwork.JoinLobby();
+
+        createRoomInputField.Select(); // Makes InputField ready to receive user input
 
         // Assign a listener to the Toggle's onValueChanged event
         toggle.onValueChanged.AddListener(delegate { Toggle(toggle); });
@@ -169,6 +171,21 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // Joins room player has clicked on
     public void JoinRoom(string roomName)
     {
+        //        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
+
+        // Displays the playButton to the owner of the room
+        if (PhotonNetwork.IsMasterClient)
+        {
+            joinMedievalBtn.gameObject.SetActive(true);
+            joinAsylumBtn.gameObject.SetActive(true);
+        }
+        // Disables the playButton to other players
+        else
+        {
+            joinMedievalBtn.gameObject.SetActive(false);
+            joinAsylumBtn.gameObject.SetActive(false);
+        }
+
         PhotonNetwork.JoinRoom(roomName);
     }
 
@@ -257,32 +274,34 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        //        if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
 
-        // Displays the playButton to the owner of the room
-        if (PhotonNetwork.IsMasterClient)
-        {
-            joinMedievalBtn.SetActive(true);
-            joinAsylumBtn.SetActive(true);
-        }
-        // Disables the playButton to other players
-        else
-        {
-            joinMedievalBtn.SetActive(false);
-            joinAsylumBtn.SetActive(false);
-        }
     }
 
     // Loads Medieval room
     public void JoinMedievalRoom()
     {
+        // Check if this is being synced
+        roomName.text = "Loading Medieval Room...";
+        LoadRoom();
         PhotonNetwork.LoadLevel("Medieval");
+        
+        // Close Room after joining
+        // PhotonNetwork.CurrentRoom.IsVisibile = false;
     }
 
     // Load Asylum room
     public void JoinAsylumRoom()
     {
+        roomName.text = "Loading Asylum Room...";
+        LoadRoom();
         PhotonNetwork.LoadLevel("Asylum");
+    }
+
+    public void LoadRoom()
+    {
+        joinMedievalBtn.gameObject.SetActive(false);
+        joinAsylumBtn.gameObject.SetActive(false);
+        leaveBtn.gameObject.SetActive(false);
     }
 
     public void JoinSinglePlaer()

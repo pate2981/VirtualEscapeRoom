@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum KeyboardKeys
+public enum KeyBind
 {
     Key1 = KeyCode.Alpha1,
     Key2 = KeyCode.Alpha2,
@@ -12,5 +12,7 @@ public enum KeyboardKeys
     Key6 = KeyCode.Alpha6,
     Key7 = KeyCode.Alpha7,
     Key8 = KeyCode.Alpha8,
-    Key9 = KeyCode.Alpha9
+    Key9 = KeyCode.Alpha9,
+    ToggleChat = KeyCode.Return,
+    PauseGame = KeyCode.Escape
 }

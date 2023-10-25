@@ -22,12 +22,9 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
 
     private bool isChatPanelActive = false; // Added variable to track input field state
 
-    [SerializeField] private Speaker speaker;
-    [SerializeField] private Recorder recorder;
-
     void Start()
     {
-        chatPanel.SetActive(false);
+        chatPanel.SetActive(true);
         if (PhotonNetwork.IsConnected)
         {
             ConnectToChat();
@@ -41,7 +38,7 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             chatClient.Service();
         }
 
-        if (isChatPanelActive && chatField.text != "" && Input.GetKey(KeyCode.Return))
+        if (isChatPanelActive && chatField.text != "" && Input.GetKey((KeyCode)KeyBind.ToggleChat))
         {
             SubmitPublicChatOnClick(); // Submit the chat message when input field is active and Enter is pressed
             chatField.ActivateInputField();
@@ -52,39 +49,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
             ToggleChatPanel();
             // Toggle the input field visibility when Enter is pressed
         }
-
-        /* (speaker.isActiveAndEnabled == false)
-        {
-            Debug.LogError("speaker is not active and enabled");
-        }
-        if (speaker.isActiveAndEnabled == true)
-        {
-            Debug.Log("speaker is active and enabled");
-        }
-        if (speaker.IsPlaying == false)
-        {
-            Debug.LogError("speaker is not playing");
-        }
-        if (speaker.IsPlaying == true)
-        {
-            Debug.Log("speaker is playing");
-        }
-        if (recorder.isActiveAndEnabled== false)
-        {
-            Debug.LogError("recorder is not active and enabled");
-        }
-        if (recorder.isActiveAndEnabled == true)
-        {
-            Debug.Log("recorder is active and enabled");
-        }
-        if (recorder.IsCurrentlyTransmitting == false)
-        {
-            Debug.LogError("recorder is not transmitting");
-        }
-        if (recorder.isActiveAndEnabled == true)
-        {
-            Debug.Log("recorder is transmitting");
-        }*/
     }
 
     void ToggleChatPanel()

@@ -4,41 +4,35 @@ using UnityEngine;
 using Photon.Pun;
 using TMPro;
 
-public class PlayerSpawner : MonoBehaviour
+public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
-    // Remove this later
     [SerializeField] private GameObject playerPrefab;
-
     [SerializeField] private GameObject[] playerPrefabs;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private bool isSinglePlayer;
+    //[SerializeField] private bool isSinglePlayer;
 
 
     // Start is called before the first frame update
     private void Start()
     {
-/*        if (isSinglePlayer)
+        Debug.Log("PlayerSpawner Start() method called");
+        Debug.Log("playerPrefabs array index: " + (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]);
+        int randomNumber = Random.Range(0, spawnPoints.Length);
+        Transform spawnPoint = spawnPoints[randomNumber];
+        Debug.Log("playerPrefabs array index: " + (int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]);
+        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+        Debug.Log("playerToSpawn" + playerToSpawn);
+        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+
+        if (photonView.IsMine)
         {
-            int randomNumber = Random.Range(0, spawnPoints.Length);
-            Transform spawnPoint = spawnPoints[randomNumber];
-            Instantiate(playerPrefab, spawnPoint);
-            PhotonView photonView = playerPrefab.GetComponent<PhotonView>();
-            PhotonTransformViewClassic photonTransformViewClassic = playerPrefab.GetComponent<PhotonTransformViewClassic>();
-            Destroy(photonView);
-            Destroy(photonTransformViewClassic);
-            // Destroy chat manager, voice manager and voice logger and the players speaker
-        }
-        else
-        {*/
-            int randomNumber = Random.Range(0, spawnPoints.Length);
-            Transform spawnPoint = spawnPoints[randomNumber];
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.position, Quaternion.identity);
             TextMeshProUGUI playerNickname = playerPrefab.GetComponent<TextMeshProUGUI>();
             playerNickname.text = PhotonNetwork.NickName;
+        }
     }
 
-    public void CheckIsSinglePlayer(bool isSinglePlayer)
-    {
-        isSinglePlayer = this.isSinglePlayer;
-    }
+    /*    public void CheckIsSinglePlayer(bool isSinglePlayer)
+        {
+            isSinglePlayer = this.isSinglePlayer;
+        }*/
 }

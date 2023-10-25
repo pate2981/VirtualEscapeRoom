@@ -14,7 +14,7 @@ public class KeyInteraction : MonoBehaviourPun
         Key key = GetComponent<Key>();
 
         // Adds the scroll to the player's inventory
-        inventoryManager.AddKey(key);
+        inventoryManager.AddItem(key);
 
         // Call an RPC to remove the visibility of scroll object from the game world for all players
         photonView.RPC("DisableKey", RpcTarget.AllBuffered);

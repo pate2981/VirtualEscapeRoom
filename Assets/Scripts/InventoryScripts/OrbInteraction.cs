@@ -14,7 +14,7 @@ public class OrbInteraction : MonoBehaviourPun
         Orb orb = GetComponent<Orb>();
 
         // Adds the scroll to the player's inventory
-        inventoryManager.AddOrb(orb);
+        inventoryManager.AddItem(orb);
 
         // Call an RPC to remove the visibility of scroll object from the game world for all players
         photonView.RPC("DisableOrb", RpcTarget.AllBuffered);
