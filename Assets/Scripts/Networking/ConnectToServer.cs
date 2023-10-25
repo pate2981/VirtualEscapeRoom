@@ -108,4 +108,12 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("Lobby");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown((KeyCode)KeyBind.Next))
+        {
+            OnClickConnect();
+        }
+    }
 }

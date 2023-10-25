@@ -274,7 +274,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-
+        if (Input.GetKeyDown((KeyCode)KeyBind.Next))
+        {
+            CreateRoom();
+        }
     }
 
     // Loads Medieval room

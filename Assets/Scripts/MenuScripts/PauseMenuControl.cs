@@ -13,6 +13,7 @@ public class PauseMenuControl : MonoBehaviour
     public GameObject crosshair;
     public GameObject gameOver;
     public GameObject chatPanel;
+    public GameObject settingsPanel;
 
     private bool isPaused = false;
 
@@ -57,6 +58,18 @@ public class PauseMenuControl : MonoBehaviour
         toolbar.SetActive(false);
         crosshair.SetActive(false);
         chatPanel.SetActive(false);
+    }
+
+    public void SettingsBtn()
+    {
+        pauseMenuUI.SetActive(false);
+        settingsPanel.SetActive(true);
+    }
+
+    public void BacktoPauseFromSettings()
+    {
+        pauseMenuUI.SetActive(true);
+        settingsPanel.SetActive(false);
     }
 
     private IEnumerator PauseCoroutine()

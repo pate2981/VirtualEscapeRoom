@@ -1,23 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundAudio : MonoBehaviour
 {
-    public AudioSource backgroundMusic; // Background music component
-    public float maxVolume = 1.0f;  // Maximum volume
-    public float minVolume = 0.0f;
+    public Slider volumeSlider;
+    public AudioSource audioSource;
 
-    // Sets the volumbe of the AudioSource
-    public void setVolume(float volume)
+    private void Start()
     {
-        volume = Mathf.Clamp(volume, minVolume, maxVolume); // Clamp the volume between min and max
-        backgroundMusic.volume = volume;    // Set the volume of the audiosource
+        // Initialize the slider's value to the current audio source volume.
+        volumeSlider.value = audioSource.volume;
+        // Add a listener to the slider's value change event.
+        volumeSlider.onValueChanged.AddListener(ChangeVolume);
     }
 
-    // Set the volume based on a slider value (0-1)
-    public void OnSliderValueChanged(float sliderValue)
+    private void ChangeVolume(float volume)
     {
-        setVolume(sliderValue);
+        // Update the audio source volume based on the slider value.
+        audioSource.volume = volume;
     }
 }

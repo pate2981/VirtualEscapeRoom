@@ -14,5 +14,6 @@ public enum KeyBind
     Key8 = KeyCode.Alpha8,
     Key9 = KeyCode.Alpha9,
     ToggleChat = KeyCode.Return,
-    PauseGame = KeyCode.Escape
+    PauseGame = KeyCode.Escape,
+    Next = KeyCode.Return,
 }
