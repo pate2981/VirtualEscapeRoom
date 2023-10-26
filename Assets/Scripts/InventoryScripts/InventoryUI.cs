@@ -116,6 +116,12 @@ public class InventoryUI : MonoBehaviour
             const int slotIndex = 7;    // Index in the array of where the item is 
             HasItem(slotIndex);
         }
+        // Checks if player has pressed 9 key
+        else if (Input.GetKeyDown((KeyCode)KeyBind.Key9))
+        {
+            const int slotIndex = 8;    // Index in the array of where the item is 
+            HasItem(slotIndex);
+        }
     }
 
     public void HasItem(int slotIndex)

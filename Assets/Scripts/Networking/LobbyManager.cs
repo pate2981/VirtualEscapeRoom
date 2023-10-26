@@ -39,7 +39,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     // Buttons for joining rooms
     [SerializeField] private Button joinMedievalBtn;    
     [SerializeField] private Button joinAsylumBtn;
-    [SerializeField] private Button leaveBtn;
 
     // Adds player to the lobby so that they can create rooms
     private void Start()
@@ -302,9 +301,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public void LoadRoom()
     {
-        joinMedievalBtn.gameObject.SetActive(false);
-        joinAsylumBtn.gameObject.SetActive(false);
-        leaveBtn.gameObject.SetActive(false);
+        // Find all Button components in the scene
+        Button[] allButtons = FindObjectsOfType<Button>();
+
+        // Deactivate (set active to false) for each button
+        foreach (Button button in allButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
     }
 
     public void JoinSinglePlaer()

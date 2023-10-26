@@ -35,6 +35,8 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     {
         playerName.text = _player.NickName;
         player = _player;
+        playerProperties["nickname"] = _player.NickName;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);  // Synchronize players avatars across all devices in the room
         UpdatePlayerItem(player);
     }
 

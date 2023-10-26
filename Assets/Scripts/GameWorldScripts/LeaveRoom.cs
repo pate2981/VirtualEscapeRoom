@@ -8,11 +8,13 @@ using Photon.Pun;
 
 public class LeaveRoom : MonoBehaviourPun, IPunObservable
 {
-    public float timeRemaining = 10; // Set the initial time remaining
-    public Text timerText; // Reference to the UI text element that will display the timer
-    public GameObject winnerScreen;
-    public GameObject toolbar;
-    public GameObject crosshair;
+    [SerializeField] private float timeRemaining = 10; // Set the initial time remaining
+    [SerializeField] private Text timerText; // Reference to the UI text element that will display the timer
+    [SerializeField] private GameObject winnerScreen;
+    [SerializeField] private GameObject toolbar;
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject chatPanel;
+
     private bool isGameOver = false;
     //[SerializeField] private GameObject playerPrefab;
 
@@ -24,9 +26,6 @@ public class LeaveRoom : MonoBehaviourPun, IPunObservable
     private void OnCollisionEnter(Collision collision)
     {
         photonView.RPC("NetworkTrigger", RpcTarget.AllViaServer);
-
-        
-        
     }
 
     [PunRPC]
@@ -39,6 +38,7 @@ public class LeaveRoom : MonoBehaviourPun, IPunObservable
         timerText.text = "";
         toolbar.SetActive(false);
         crosshair.SetActive(false);
+        chatPanel.SetActive(false);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

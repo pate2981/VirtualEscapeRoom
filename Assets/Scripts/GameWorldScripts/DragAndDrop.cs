@@ -50,7 +50,7 @@ public class DragAndDrop : MonoBehaviourPunCallbacks
 
         if (myCamera == null)
         {
-            Debug.LogError("Camera not found. Make sure the camera GameObject exists and is named correctly.");
+            //Debug.LogError("Camera not found. Make sure the camera GameObject exists and is named correctly.");
         }
     }
 

@@ -14,13 +14,14 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     #region Setup
     ChatClient chatClient;
     bool isConnected;
-    [SerializeField] string username;
+    //[SerializeField] string username;
     [SerializeField] GameObject chatPanel;
     string currentChat;
     [SerializeField] TMP_InputField chatField;
     [SerializeField] TextMeshProUGUI chatDisplay;
 
     private bool isChatPanelActive = false; // Added variable to track input field state
+    private string channelName = PhotonNetwork.CurrentRoom.Name;
 
     void Start()
     {
@@ -72,13 +73,20 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
         isConnected = true;
         chatClient = new ChatClient(this);
         chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, PhotonNetwork.AppVersion, new AuthenticationValues(PhotonNetwork.NickName));
+
+        // Already have this line of code in another method. Maybe delete?
+
+        chatClient.Subscribe(new string[] {
+            channelName
+        });;
+
     }
     #endregion Setup
 
     #region PublicChat
     public void SubmitPublicChatOnClick()
     {
-        chatClient.PublishMessage("RegionChannel", chatField.text);
+        chatClient.PublishMessage(channelName, chatField.text);
         chatField.text = "";
         currentChat = "";
         chatField.Select();
@@ -100,8 +108,8 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     {
         if (state == ChatState.ConnectedToFrontEnd)
         {
-            Debug.Log("Connected to chat");
-            chatClient.Subscribe(new string[] { "RegionChannel" });
+            //Debug.Log("Connected to chat");
+            chatClient.Subscribe(new string[] { channelName });
         }
         else if (state == ChatState.Disconnected)
         {
@@ -124,20 +132,14 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
 
     public void OnGetMessages(string channelName, string[] senders, object[] messages)
     {
+        Debug.Log("OnGetMessages received msg from: " + channelName);
         for (int i = 0; i < senders.Length; i++)
         {
             string senderAndMessage = $"{senders[i]}: {messages[i]}";
             chatDisplay.text += "\n" + senderAndMessage;
+            Debug.Log("Message: " + senderAndMessage);
         }
     }
-
-
-
-
-
-
-
-
 
     public void OnStatusUpdate(string user, int status, bool gotMessage, object message)
     {
@@ -146,7 +148,6 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
 
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        // No need for additional logic here
     }
 
     public void OnUnsubscribed(string[] channels)

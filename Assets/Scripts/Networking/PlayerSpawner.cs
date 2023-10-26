@@ -26,12 +26,9 @@ public class PlayerSpawner : MonoBehaviourPunCallbacks
         Debug.Log("playerToSpawn" + playerToSpawn);
         PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
 
-        if (photonView.IsMine)
-        {
-            TextMeshProUGUI playerNickname = playerPrefab.GetComponent<TextMeshProUGUI>();
+            //TextMeshProUGUI playerNickname = playerPrefab.GetComponent<TextMeshProUGUI>();
            
-            playerNickname.text = player.NickName;
-        }
+            //playerNickname.text = (string)PhotonNetwork.PlayerList[0].CustomProperties["nickname"];
     }
 
     /*    public void CheckIsSinglePlayer(bool isSinglePlayer)
