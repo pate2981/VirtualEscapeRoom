@@ -71,15 +71,11 @@ public class PhotonChatManager : MonoBehaviour, IChatClientListener
     private void ConnectToChat()
     {
         isConnected = true;
+        // Use a unique channel name for each room
+        string channelName = "Room_" + PhotonNetwork.CurrentRoom.Name;
         chatClient = new ChatClient(this);
         chatClient.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat, PhotonNetwork.AppVersion, new AuthenticationValues(PhotonNetwork.NickName));
-
-        // Already have this line of code in another method. Maybe delete?
-
-        chatClient.Subscribe(new string[] {
-            channelName
-        });;
-
+        chatClient.Subscribe(new string[] { channelName });
     }
     #endregion Setup
 
