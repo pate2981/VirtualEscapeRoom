@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour
         if (isInventoryFull())
         {
             inventory.Add(item);
-            inventoryUI.UpdateInventoryUI(inventory, item);
+            inventoryUI.RefreshInventoryUI();
         }
     }
 
@@ -42,4 +42,12 @@ public class InventoryManager : MonoBehaviour
         }
         return true;
     }
+
+    public void RemoveItem(Item item) {
+        if (inventory.Contains(item)) {
+            inventory.Remove(item);
+            inventoryUI.RefreshInventoryUI();
+        }
+    }
+
 }

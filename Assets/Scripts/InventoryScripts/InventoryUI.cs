@@ -144,8 +144,27 @@ public class InventoryUI : MonoBehaviour
             List<Item> inventory = inventoryManager.getInventory();
             Item item = inventory[slotNumber];
             item.Use(); // Use the item
+            inventoryManager.RemoveItem(item);
+        }
+    }
+
+    public void ClearInventoryUI() {
+        foreach (GameObject slot in inventorySlots) {
+            foreach (Transform child in slot.transform) {
+                Destroy(child.gameObject);
+            }
+        }
+    }
+
+    public void RefreshInventoryUI() {
+        ClearInventoryUI();
+        List<Item> currentInventory = inventoryManager.getInventory();
+        for (int i = 0; i < currentInventory.Count; i++) {
+            GameObject slot = inventorySlots[i];
+            GameObject image = Instantiate(currentInventory[i].Image, slot.transform);
+            image.transform.localPosition = Vector3.zero;
         }
     }
 }
 
-   
+

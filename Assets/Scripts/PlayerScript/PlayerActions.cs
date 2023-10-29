@@ -14,7 +14,10 @@ public class PlayerActions : MonoBehaviourPun
     private GameObject bookcaseRotate;
     [SerializeField]
     private bool active = false;
-    
+
+    [SerializeField]
+    public bool asylumKeyItem = true;
+
     private RaycastHit hit;
 
     private void Start()
@@ -62,4 +65,12 @@ public class PlayerActions : MonoBehaviourPun
             }*/
         }
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "DoorD_V2")
+        {
+            other.gameObject.GetComponent<Animator>().Play("DoorOpenAnimation");
+        }
+    }
+
 }

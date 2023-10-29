@@ -527,7 +527,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &86199022
 GameObject:
@@ -1145,7 +1145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
       propertyPath: m_LocalScale.y
@@ -1153,15 +1153,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.18
+      value: -20.28
       objectReference: {fileID: 0}
     - target: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.09
+      value: 4.659
       objectReference: {fileID: 0}
     - target: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -30
+      value: -52.88
       objectReference: {fileID: 0}
     - target: {fileID: 8460169369737095131, guid: a29017fc1f15f95479bef3a8727b2e82, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1793,6 +1793,10 @@ MonoBehaviour:
   popupText: {fileID: 1938964433}
   inventoryManager: {fileID: 1815002469}
   crosshair: {fileID: 1013163643}
+  chestSoundObj: {fileID: 0}
+  chestAnimat: {fileID: 0}
+  orOne: {fileID: 0}
+  orTwo: {fileID: 0}
 --- !u!114 &278999471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3467,7 +3471,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308593382
 GameObject:
@@ -3545,6 +3549,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308593382}
   m_CullTransparentMesh: 1
+--- !u!1 &1349836537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8604700770285963400, guid: beef3bcde1610f04aa96275436147bb9, type: 3}
+  m_PrefabInstance: {fileID: 8606311150561899606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1349836542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349836537}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.098418, z: 1}
+  m_Center: {x: 0.47858202, y: 1.070727, z: 0.059524998}
+--- !u!95 &1349836543
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349836537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68285e639d10ca740a5e752737bf26ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &1349836544
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349836537}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 1a7d587297b56e64a8b744f7e1a61311, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!1 &1520363523
 GameObject:
   m_ObjectHideFlags: 0
@@ -4195,6 +4253,8 @@ MonoBehaviour:
   toolbar: {fileID: 1998179283}
   crosshair: {fileID: 1013163643}
   gameOver: {fileID: 1978876276}
+  chatPanel: {fileID: 0}
+  settingsPanel: {fileID: 0}
 --- !u!114 &1715963919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4331,7 +4391,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1815002467
 GameObject:
@@ -4376,6 +4436,10 @@ MonoBehaviour:
   popupText: {fileID: 1938964433}
   inventoryManager: {fileID: 1815002469}
   crosshair: {fileID: 1013163643}
+  chestSoundObj: {fileID: 0}
+  chestAnimat: {fileID: 0}
+  orOne: {fileID: 0}
+  orTwo: {fileID: 0}
 --- !u!114 &1815002469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4758,7 +4822,7 @@ Transform:
   m_Children:
   - {fileID: 278999469}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2079607324
 GameObject:
