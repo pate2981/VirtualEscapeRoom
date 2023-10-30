@@ -4173,10 +4173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: scroll 2
   image: {fileID: 6564733741430674843, guid: 7a2b6e6aa9b9d974a838d6b3de7a7f74, type: 3}
-  message: '"In this room of levers, two are needed to open the way. But pull them
-    not in haste, for they must both be in play. Listen to the sounds they make,
-    and choose the ones that chime. For when they both are pulled, the path to freedom
-    will be thine"'
+  message: '"Two levers wait within this space, Each a step to win the race. Click
+    both to unleash what''s stored, The orb awaits, reward adored."'
   inventoryUI: {fileID: 457499614}
 --- !u!114 &1189397895
 MonoBehaviour:
@@ -6510,11 +6508,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Scroll 3
   image: {fileID: 6564733741430674843, guid: 7a2b6e6aa9b9d974a838d6b3de7a7f74, type: 3}
-  message: '"I am a game of strategy and wit, With two balls and pedestals, you must
-    commit. Place the balls just right, or you''ll be stuck, For the escape door
-    to open, you''re in luck. Each ball has its place, make no mistake, Figure out
-    the puzzle, before it''s too late.  With your mind sharp and your focus clear,
-    The escape is near, have no fear"'
+  message: '"In pairs I come, shining bright, Yet through your touch, I take flight.
+    Click me once, I''ll come to hand, In slots I''ll stand, just as planned. To
+    use my power, you must see, The key that''s pressed will set me free. In slots
+    on high, the pedestal''s aim, Unleash my might with keys that claim."'
   inventoryUI: {fileID: 457499614}
 --- !u!114 &2088178517
 MonoBehaviour:

@@ -1295,6 +1295,80 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+--- !u!114 &1356252182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8164175762580797811, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356252183 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8164175763302771045, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356252184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8164175762851035479, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1356252185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164175762033067331, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1356252186 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8164175763491979980, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1356252187 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164175763230758191, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1356252188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164175763078078484, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1356252189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164175763636932004, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1356252190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164175761770775785, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1356252191 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164175763616661771, guid: 367df9e48fb6fcb4bb3f9f5ddda46eb1, type: 3}
+  m_PrefabInstance: {fileID: 1356252181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1409443329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1302,6 +1376,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8085606935330417298, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: chatField
+      value: 
+      objectReference: {fileID: 1356252183}
+    - target: {fileID: 8085606935330417298, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: chatPanel
+      value: 
+      objectReference: {fileID: 1356252185}
+    - target: {fileID: 8085606935330417298, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: chatDisplay
+      value: 
+      objectReference: {fileID: 1356252184}
+    - target: {fileID: 8085606935330417299, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1220395847}
+    - target: {fileID: 8085606935330417299, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: volumeSlider
+      value: 
+      objectReference: {fileID: 1356252182}
+    - target: {fileID: 8085606935330417300, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: toolbar
+      value: 
+      objectReference: {fileID: 1356252190}
+    - target: {fileID: 8085606935330417300, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1356252189}
+    - target: {fileID: 8085606935330417300, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1356252186}
+    - target: {fileID: 8085606935330417300, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1356252188}
     - target: {fileID: 8085606935330417301, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1350,6 +1460,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUiContrl
       objectReference: {fileID: 0}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: toolbar
+      value: 
+      objectReference: {fileID: 1356252190}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 1356252188}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: chatPanel
+      value: 
+      objectReference: {fileID: 1356252185}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1356252189}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 1356252186}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 1356252187}
+    - target: {fileID: 8085606935330417303, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
+      propertyPath: settingsPanel
+      value: 
+      objectReference: {fileID: 1356252191}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e11febd42e4be4889393a51a3e61df, type: 3}
 --- !u!114 &1409443330 stripped
