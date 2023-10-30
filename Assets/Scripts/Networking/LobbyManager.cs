@@ -285,6 +285,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         // Check if this is being synced
         roomName.text = "Loading Medieval Room...";
         LoadRoom();
+        //PhotonNetwork.CurrentRoom.IsVisible = false;
         PhotonNetwork.LoadLevel("Medieval");
         
         // Close Room after joining
@@ -296,6 +297,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         roomName.text = "Loading Asylum Room...";
         LoadRoom();
+        //PhotonNetwork.CurrentRoom.IsVisible = false;
         PhotonNetwork.LoadLevel("Asylum");
     }
 

@@ -117,7 +117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8602361204681555571
 RectTransform:
   m_ObjectHideFlags: 0
@@ -427,6 +427,7 @@ MonoBehaviour:
   playerActivateDistance: 5
   bookcaseRotate: {fileID: 0}
   active: 0
+  asylumKeyItem: 1
 --- !u!114 &5135134673858215608
 MonoBehaviour:
   m_ObjectHideFlags: 0

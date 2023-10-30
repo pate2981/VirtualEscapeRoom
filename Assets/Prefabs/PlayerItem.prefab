@@ -604,7 +604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37af916d5546ea945a23fe5c07a302bb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28a33763be8012442a49293394956b7c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -685,8 +685,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -713,10 +713,8 @@ MonoBehaviour:
   rightArrowButton: {fileID: 5839611600802658776}
   playerAvatar: {fileID: 6789982987152645421}
   avatars:
-  - {fileID: 21300000, guid: 37af916d5546ea945a23fe5c07a302bb, type: 3}
-  - {fileID: 21300000, guid: 1e5b90820e5c6d543b412dd4a3ed708d, type: 3}
-  - {fileID: 21300000, guid: 9e7c63c8734f45c4a9fc2a9200fd5649, type: 3}
-  - {fileID: 21300000, guid: 5c831398e802da141b819276272e3bf2, type: 3}
+  - {fileID: 21300000, guid: 28a33763be8012442a49293394956b7c, type: 3}
+  - {fileID: 21300000, guid: f74c9c1931437894a85f5675e72962b9, type: 3}
 --- !u!1 &8949861207302192701
 GameObject:
   m_ObjectHideFlags: 0
