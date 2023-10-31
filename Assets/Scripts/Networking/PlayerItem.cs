@@ -30,6 +30,12 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         backgroundImage = GetComponent<Image>();
     }
 
+    private void Start()
+    {
+        playerProperties["playerAvatar"] = 1;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);  // Synchronize players avatars across all devices in the room
+    }
+
     // Sets the player name to the nickname the user entered when connecting to lobby
     public void SetPlayerInfo(Player _player)
     {

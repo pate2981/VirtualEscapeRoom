@@ -16,4 +16,5 @@ public enum KeyBind
     ToggleChat = KeyCode.Return,
     PauseGame = KeyCode.Escape,
     Next = KeyCode.Return,
+    Mute = KeyCode.M
 }

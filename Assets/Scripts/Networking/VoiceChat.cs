@@ -6,24 +6,26 @@ using UnityEngine.UI;
 
 public class VoiceChat : MonoBehaviour
 {
-    [SerializeField]
-    private Button MuteButton;  // Button to toggle mute and unmute
+    [SerializeField] private Button MuteButton;  // Button to toggle mute and unmute
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject player;
 
-    public AudioSource audioSource;
-
-    public Sprite muteSprite;
-    public Sprite unmuteSprite;
+    [SerializeField] private Sprite muteSprite;
+    [SerializeField] private Sprite unmuteSprite;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = player.GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey((KeyCode)KeyBind.Mute))
+        {
+            ToggleMute();
+        }
     }
 
     // Function used to toggle mute and unmute
