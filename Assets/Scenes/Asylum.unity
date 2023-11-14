@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -831,6 +831,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 1349836537}
+    - target: {fileID: 2303921294396319334, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
+      propertyPath: keypadCombo
+      value: 1234
+      objectReference: {fileID: 0}
     - target: {fileID: 2303921294396319335, guid: b47bdf1669865c841ace96330ee3d7ec, type: 3}
       propertyPath: m_Name
       value: KeypadStandard
@@ -940,7 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Diary
   image: {fileID: 6564733741430674843, guid: 24d9786719b5b1e46b78718ee2dec637, type: 3}
-  message: test
+  message: 'password: 1234, will give less obvious hint later'
   inventoryUI: {fileID: 1819207936}
 --- !u!114 &1356006818
 MonoBehaviour:
