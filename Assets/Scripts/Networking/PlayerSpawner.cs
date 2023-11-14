@@ -7,7 +7,7 @@ using TMPro;
 
 public class PlayerSpawner : MonoBehaviourPunCallbacks
 {
-    [SerializeField] private GameObject playerPrefab;
+    //[SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject[] playerPrefabs;
     [SerializeField] private Transform[] spawnPoints;
     //[SerializeField] private bool isSinglePlayer;

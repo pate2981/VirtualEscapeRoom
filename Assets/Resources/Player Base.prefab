@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bcfcae111572f4ab7dce159109d4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 3
   groundDrag: 5
   playerHeight: 2
   isGround:
@@ -497,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 293121532897635857, guid: ae574264281fcb042ae537c16b5ad15a, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1647539077115873229, guid: ae574264281fcb042ae537c16b5ad15a, type: 3}
       propertyPath: m_RootOrder
