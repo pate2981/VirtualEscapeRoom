@@ -144,7 +144,9 @@ public class InventoryUI : MonoBehaviour
             List<Item> inventory = inventoryManager.getInventory();
             Item item = inventory[slotNumber];
             item.Use(); // Use the item
-            inventoryManager.RemoveItem(item);
+            if (!item is Scroll) {
+                inventoryManager.RemoveItem(item);
+            }
         }
     }
 
