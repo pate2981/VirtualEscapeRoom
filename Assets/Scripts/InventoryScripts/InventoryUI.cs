@@ -143,31 +143,37 @@ public class InventoryUI : MonoBehaviour
     public void UseItem(GameObject slot, int slotNumber)
     {
         Image[] itemsInChildren = slot.GetComponentsInChildren<Image>();
-
         // Checks if there is an image of an item in the inventory slot
         if (itemsInChildren.Length > 1)
         {
             List<Item> inventory = inventoryManager.getInventory();
             Item item = inventory[slotNumber];
             item.Use(); // Use the item
-            if (!item is Scroll) {
-                inventoryManager.RemoveItem(item);
+            // Check if the item is not a Scroll and if it is an AsylumKey
+            if (!(item is Scroll) || item is AsylumKey)
+            {
+                inventoryManager.RemoveItem(item); // Remove the item from inventory
             }
         }
     }
 
-    public void ClearInventoryUI() {
-        foreach (GameObject slot in inventorySlots) {
-            foreach (Transform child in slot.transform) {
+    public void ClearInventoryUI()
+    {
+        foreach (GameObject slot in inventorySlots)
+        {
+            foreach (Transform child in slot.transform)
+            {
                 Destroy(child.gameObject);
             }
         }
     }
 
-    public void RefreshInventoryUI() {
+    public void RefreshInventoryUI()
+    {
         ClearInventoryUI();
         List<Item> currentInventory = inventoryManager.getInventory();
-        for (int i = 0; i < currentInventory.Count; i++) {
+        for (int i = 0; i < currentInventory.Count; i++)
+        {
             GameObject slot = inventorySlots[i];
             GameObject image = Instantiate(currentInventory[i].Image, slot.transform);
             image.transform.localPosition = Vector3.zero;
