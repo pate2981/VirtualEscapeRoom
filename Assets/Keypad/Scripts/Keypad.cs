@@ -37,7 +37,7 @@ namespace NavKeypad {
         [SerializeField] private TMP_Text keypadDisplayText;
         [SerializeField] private AudioSource audioSource;
 
-
+        private bool keypadActive = false;
 
         private string currentInput;
         private bool displayingResult = false;
@@ -56,6 +56,7 @@ namespace NavKeypad {
         //Gets value from pressedbutton
         public void AddInput(string input)
         {
+            if (!keypadActive) return;
             audioSource.PlayOneShot(buttonClickedSfx);
             if (displayingResult || accessWasGranted) return;
             switch (input)
@@ -131,5 +132,14 @@ namespace NavKeypad {
             door.GetComponent<Animator>().enabled = true;
         }
 
+        public bool getKeypadActive()
+        {
+            return keypadActive;
+        }
+
+        public void setKeypadActive(bool active)
+        {
+            keypadActive = active;
+        }
     }
 }

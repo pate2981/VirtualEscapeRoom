@@ -16,6 +16,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private ChestAnimation chestAnimat;
     [SerializeField] private Orbsync orOne;
     [SerializeField] private OrbOneSync orTwo;
+    [SerializeField] private Keypad keypadScript;
 
     public void UpdateInventoryUI(List<Item> inventory, Item item)
     {
@@ -44,6 +45,11 @@ public class InventoryUI : MonoBehaviour
         chestAnimat.ChestAnim();
 
         //collision.gameObject.SetActive(false);
+    }
+
+    public void activateKeypad()
+    {
+        
     }
 
     public void PlaceOrb()
