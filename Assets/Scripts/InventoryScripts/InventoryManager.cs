@@ -23,6 +23,7 @@ public class InventoryManager : MonoBehaviour
             inventory.Add(item);
             inventoryUI.RefreshInventoryUI();
         }
+        LogInventoryItems();
     }
 
     public List<Item> getInventory()
@@ -49,6 +50,16 @@ public class InventoryManager : MonoBehaviour
             inventory.Remove(item);
             inventoryUI.RefreshInventoryUI();
         }
+    }
+
+    public void LogInventoryItems()
+    {
+        string currentItems = "Current Inventory Items: ";
+        foreach (Item item in inventory)
+        {
+            currentItems += item.name; 
+        }
+        Debug.Log(currentItems);
     }
 
 }

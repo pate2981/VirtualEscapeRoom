@@ -49,7 +49,6 @@ public class InventoryUI : MonoBehaviour
 
     public void activateKeypad()
     {
-        Debug.Log("Keypad Activated");
         keypadScript.setKeypadActive(true);
     }
 
