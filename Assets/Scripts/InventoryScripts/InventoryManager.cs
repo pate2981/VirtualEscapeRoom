@@ -17,6 +17,7 @@ public class InventoryManager : MonoBehaviour
     /* Adds item to the player's inventory */
     public void AddItem(Item item)
     {
+        Debug.Log("Added: " + item); 
         if (isInventoryFull())
         {
             inventory.Add(item);

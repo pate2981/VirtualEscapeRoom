@@ -4,7 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace NavKeypad { 
     public class Keypad : MonoBehaviour
     {
         [Header("Events")]
@@ -142,4 +141,3 @@ namespace NavKeypad {
             keypadActive = active;
         }
     }
-}
