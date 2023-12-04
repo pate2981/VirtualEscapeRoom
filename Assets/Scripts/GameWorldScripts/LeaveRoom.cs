@@ -25,6 +25,7 @@ public class LeaveRoom : MonoBehaviourPun, IPunObservable
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Player Entered");
         photonView.RPC("NetworkTrigger", RpcTarget.AllViaServer);
     }
 
